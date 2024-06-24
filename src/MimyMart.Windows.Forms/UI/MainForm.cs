@@ -12,7 +12,6 @@ using MimyMart.Windows.Forms.Events;
 using MimyMart.Windows.Forms.Properties;
 using MimyMart.Windows.Forms.UI.Inventory;
 using MimyMart.Windows.Forms.UI.Login;
-using MimyMart.Windows.Forms.UI.PayLater;
 using MimyMart.Windows.Forms.UI.Report;
 using MimyMart.Windows.Forms.UI.Sale;
 using MimyMart.Windows.Forms.UI.Setting;
@@ -29,7 +28,6 @@ public partial class MainForm : Form
 	private readonly InventoryPanel _inventoryPanel;
 	private readonly UsersPanel _usersPanel;
 	private readonly ReportsPanel _reportsPanel;
-	private readonly PayLaterPaymentPanel _accountsReceivablePanel;
 	private readonly SettingsPanel _settingsPanel;
 	private readonly UserLogInPanel _userLogInPanel;
 	private readonly IEventAggregator _eventAggregator;
@@ -45,7 +43,6 @@ public partial class MainForm : Form
 					InventoryPanel inventoryPanel, 
 					UsersPanel usersPanel, 
 					ReportsPanel reportsPanel, 
-					PayLaterPaymentPanel accountsReceivablePanel, 
 					SettingsPanel settingsPanel,
 					UserLogInPanel userLogInPanel,
 					IEventAggregator eventAggregator,
@@ -62,8 +59,6 @@ public partial class MainForm : Form
 		_usersPanel.Visible = false;
 		_reportsPanel = reportsPanel;
 		_reportsPanel.Visible = false;
-		_accountsReceivablePanel = accountsReceivablePanel;
-		_accountsReceivablePanel.Visible = false;
 		_settingsPanel = settingsPanel;
 		_settingsPanel.Visible = false;
 		_userLogInPanel = userLogInPanel;
@@ -147,12 +142,6 @@ public partial class MainForm : Form
 
 				break;
 
-			case SubPanel.AccountsReceivable:
-
-				panelToShow = _accountsReceivablePanel;
-
-				break;
-
 			case SubPanel.Settings:
 
 				panelToShow = _settingsPanel;
@@ -230,14 +219,6 @@ public partial class MainForm : Form
 			return;
 			
 		SwitchToPanel(SubPanel.Settings);
-	}
-
-	private void AccountsReceivableButton_Click(object sender, EventArgs e)
-	{
-		if (!_isUserLoggedIn)
-			return;
-
-		SwitchToPanel(SubPanel.AccountsReceivable);
 	}
 
 	private void LogInButton_Click(object sender, EventArgs e)

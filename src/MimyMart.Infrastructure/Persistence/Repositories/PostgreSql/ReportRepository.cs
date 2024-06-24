@@ -30,28 +30,12 @@ public class ReportRepository : IReportRepository
 					(id,
 					 created,
 					 reference_id,
-					 invoice_total,
-					 general_total,
-					 hardware_total,
-					 paylater_total,
-					 general_paylater_total,
-					 hardware_paylater_total,
-					 invoice_total_without_paylater,
-					 general_total_without_paylater,
-					 hardware_total_without_paylater)
+					 invoice_total)
 				VALUES
 					(@id,
 					 @created,
 					 @referenceId,
-					 @invoiceTotal,
-					 @generalTotal,
-					 @hardwareTotal,
-					 @payLaterTotal,
-					 @generalPayLaterTotal,
-					 @hardwarePayLaterTotal,
-					 @invoiceTotalWithoutPayLater,
-					 @generalTotalWithoutPayLater,
-					 @hardwareTotalWithoutPayLater);
+					 @invoiceTotal);
 				""";
 		
 			var sqlParameters = new
@@ -59,15 +43,7 @@ public class ReportRepository : IReportRepository
 				id = report.Id,
 				created = report.Created,
 				referenceId = report.ReferenceId,
-				invoiceTotal = report.InvoiceTotal,
-				generalTotal = report.GeneralProductsTotal,
-				hardwareTotal = report.HardwareProductsTotal,
-				payLaterTotal = report.PayLaterPaymentsTotal,
-				generalPayLaterTotal = report.PayLaterPaymentsTotalForGeneralProducts,
-				hardwarePayLaterTotal = report.PayLaterPaymentsTotalForHardwareProducts,
-				invoiceTotalWithoutPayLater = report.InvoiceTotalWithoutPayLaterPayments,
-				generalTotalWithoutPayLater = report.GeneralProductsTotalWithoutPayLaterPayments,
-				hardwareTotalWithoutPayLater = report.HardwareProductsTotalWithoutPayLaterPayments
+				invoiceTotal = report.InvoiceTotal
 			};
 
 			await connection.ExecuteAsync(sqlCommand, sqlParameters);
@@ -96,22 +72,12 @@ public class ReportRepository : IReportRepository
 					(id,
 					 created,
 					 reference_id,
-					 money_transfer_total,
-					 fifty_fifty_total,
-					 m33_we_love_total,
-					 we_win_total,
-					 welfare_card_total,
-					 paylater_total)
+					 money_transfer_total)
 				VALUES
 					(@id,
 					 @created,
 					 @referenceId,
-					 @moneyTransferTotal,
-					 @fiftyFiftyTotal,
-					 @m33WeLoveTotal,
-					 @weWinTotal,
-					 @welfareCardTotal,
-					 @payLaterTotal);
+					 @moneyTransferTotal);
 				""";
 		
 			var sqlParameters = new
@@ -119,12 +85,7 @@ public class ReportRepository : IReportRepository
 				id = report.Id,
 				created = report.Created,
 				referenceId = report.ReferenceId,
-				moneyTransferTotal = report.MoneyTransferTotal,
-				fiftyFiftyTotal = report.FiftyFiftyTotal,
-				m33WeLoveTotal = report.M33WeLoveTotal,
-				weWinTotal = report.WeWinTotal,
-				welfareCardTotal = report.WelfareCardTotal,
-				payLaterTotal = report.PayLaterTotal
+				moneyTransferTotal = report.MoneyTransferTotal
 			};
 
 			await connection.ExecuteAsync(sqlCommand, sqlParameters);

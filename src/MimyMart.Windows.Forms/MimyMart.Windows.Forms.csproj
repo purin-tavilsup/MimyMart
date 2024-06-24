@@ -70,9 +70,6 @@
     <Compile Update="UI\Report\SalesReportPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Update="UI\PayLater\PayLaterPaymentPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Update="UI\Inventory\InventoryPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>

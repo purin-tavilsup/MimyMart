@@ -45,14 +45,6 @@
     <Folder Include="Invoices\Queries\GetInvoiceById\" />
     <Folder Include="Invoices\Queries\GetInvoicesByDate\" />
     <Folder Include="Invoices\Queries\GetInvoicesByDateRange\" />
-    <Folder Include="PayLaterPayments\Commands\CreatePayLaterPayment\" />
-    <Folder Include="PayLaterPayments\Commands\DeletePayLaterPayment\" />
-    <Folder Include="PayLaterPayments\Commands\UpdatePayLaterPayment\" />
-    <Folder Include="PayLaterPayments\Queries\GetPayLaterPayments\" />
-    <Folder Include="PayLaterPayments\Queries\GetPayLaterPaymentByInvoiceId\" />
-    <Folder Include="PayLaterPayments\Queries\GetPayLaterPaymentById\" />
-    <Folder Include="PayLaterPayments\Queries\GetPayLaterPaymentsByDateRange\" />
-    <Folder Include="PayLaterPayments\Queries\GetPayLaterPaymentsByDescriptionKeyword\" />
     <Folder Include="UserCredentials\Commands\CreateUserCredential\" />
     <Folder Include="UserCredentials\Commands\UpdateUserCredential\" />
     <Folder Include="UserCredentials\Queries\GetUserCredentialById\" />

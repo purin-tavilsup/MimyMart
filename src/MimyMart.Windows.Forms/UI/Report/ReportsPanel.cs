@@ -9,13 +9,11 @@ public partial class ReportsPanel : UserControl
     private readonly SalesReportPanel _salesReportPanel;
     private readonly InvoiceProductsReportPanel _invoiceProductsReportPanel;
     private readonly SalesHistoryReportPanel _salesHistoryReportPanel;
-    private readonly PayLaterPaymentsReportPanel _payLaterPaymentsReportPanel;
     private UserControl _activePanel;
 
     public ReportsPanel(SalesReportPanel salesReportPanel,
                         InvoiceProductsReportPanel invoiceProductsReportPanel,
-                        SalesHistoryReportPanel salesHistoryReportPanel,
-                        PayLaterPaymentsReportPanel payLaterPaymentsReportPanel)
+                        SalesHistoryReportPanel salesHistoryReportPanel)
     {
         _salesReportPanel = salesReportPanel;
         _salesReportPanel.Visible = false;
@@ -23,8 +21,6 @@ public partial class ReportsPanel : UserControl
         _invoiceProductsReportPanel.Visible = false;
         _salesHistoryReportPanel = salesHistoryReportPanel;
         _salesHistoryReportPanel.Visible = false;
-        _payLaterPaymentsReportPanel = payLaterPaymentsReportPanel;
-        _payLaterPaymentsReportPanel.Visible = false;
 
         _activePanel = new UserControl();
 
@@ -38,7 +34,6 @@ public partial class ReportsPanel : UserControl
             ReportSubPanel.SalesReport => _salesReportPanel,
             ReportSubPanel.InvoiceProductsReport => _invoiceProductsReportPanel,
             ReportSubPanel.SalesHistoryReport => _salesHistoryReportPanel,
-            ReportSubPanel.PayLaterPaymentsReport => _payLaterPaymentsReportPanel,
             _ => _salesReportPanel
         };
 
@@ -86,6 +81,5 @@ public partial class ReportsPanel : UserControl
 
     private void PayLaterPaymentsReportButton_Click(object sender, EventArgs e)
     {
-        SwitchToPanel(ReportSubPanel.PayLaterPaymentsReport);
     }
 }

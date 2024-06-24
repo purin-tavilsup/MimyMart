@@ -22,37 +22,7 @@ public partial class SalesReportPanel : UserControl
     {
         OverallSaleLabel.Text = $"{salesSummary.InvoiceTotal:N2}";
 
-        OverallSaleExcluedIncompleteArLabel.Text = $"{salesSummary.InvoiceTotalWithoutPayLaterPayments:N2}";
-
-        GeneralGoodsSaleLabel.Text = $"{salesSummary.GeneralProductsTotal:N2}";
-
-        HardwareSaleLabel.Text = $"{salesSummary.HardwareProductsTotal:N2}";
-
-        ArTotalForGeneralProductsLabel.Text = $"{salesSummary.PayLaterPaymentsTotalForGeneralProducts:N2}";
-
-        ArTotalForHardwareProductsLabel.Text = $"{salesSummary.PayLaterPaymentsTotalForHardwareProducts:N2}";
-
-        GeneralProductsTotalWithoutArLabel.Text = $"{salesSummary.GeneralProductsTotalWithoutPayLaterPayments:N2}";
-
-        HardwareProductsTotalWithoutArLabel.Text = $"{salesSummary.HardwareProductsTotalWithoutPayLaterPayments:N2}";
-
-        ArTotalLabel.Text = $"{salesSummary.PayLaterPaymentsTotal:N2}";
-
-        CompletedArLabel.Text = $"{salesSummary.CompletedPayLaterPaymentsTotal:N2}";
-
-        IncompleteArLabel.Text = $"{salesSummary.IncompletePayLaterPaymentsTotal:N2}";
-
         PaymentByTransferLabel.Text = $"{paymentsSummary.MoneyTransferTotal:N2}";
-
-        PaymentByKlkLabel.Text = $"{paymentsSummary.FiftyFiftyTotal:N2}";
-
-        PaymentByM33Label.Text = $"{paymentsSummary.M33WeLoveTotal:N2}";
-
-        PaymentByWeWinLabel.Text = $"{paymentsSummary.WeWinTotal:N2}";
-
-        PaymentByWelfareCardLabel.Text = $"{paymentsSummary.WelfareCardTotal:N2}";
-
-        PaymentByArLabel.Text = $"{paymentsSummary.PayLaterTotal:N2}";
     }
 
     private async Task<SalesSummary> GetSalesReportByPeriodAsync(TimePeriod period)
@@ -103,10 +73,6 @@ public partial class SalesReportPanel : UserControl
         var paymentsReport = await GetPaymentsReportByPeriodAsync(TimePeriod.ThisYear);
 
         ShowSummary(salesReport, paymentsReport);
-    }
-
-    private void TestDataFeedButton_Click(object sender, EventArgs e)
-    {
     }
 
     private async void ShowReportByDateRangeButton_Click(object sender, EventArgs e)

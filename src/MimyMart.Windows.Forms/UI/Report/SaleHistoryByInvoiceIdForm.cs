@@ -113,30 +113,14 @@ public partial class SaleHistoryByInvoiceIdForm : Form
 
 	private async Task ShowInvoiceProductsByInvoiceIdAsync(int invoiceId)
 	{
-		var hardwareProductsTotal = 0m;
-		var generalProductsTotal = 0m;
 		var products = await _reportService.GetInvoiceProductsByInvoiceIdAsync(invoiceId);
 
 		InvoiceProductsDataView.Rows.Clear();
 
 		foreach (var product in products)
 		{
-			var total = !product.IsGroupProduct ? product.UnitPrice * product.Quantity : product.GroupPrice;;
-
-			if (IsHardwareProduct(product))
-			{
-				hardwareProductsTotal += total;
-			}
-			else
-			{
-				generalProductsTotal += total;
-			}
-
 			AddProductToInvoiceDataView(product);
 		}
-
-		GeneralProductsTotalLabel.Text = $"{generalProductsTotal:N}";
-		HardwareProductsTotalLabel.Text = $"{hardwareProductsTotal:N}";
 	}
 
 	private async Task ShowInvoicePaymentsByInvoiceId(int invoiceId)

@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using MimyMart.Application.Common.Enums;
 using MimyMart.Application.Common.Extensions;
 using MimyMart.Application.Common.Interfaces;
 using MimyMart.Application.InvoiceProducts;
@@ -20,7 +19,6 @@ public partial class InvoiceProductsReportPanel : UserControl
 		Quantity,
 		UnitPrice,
 		Total,
-		Category,
 		DateCreated,
 		Note
 	}
@@ -42,7 +40,7 @@ public partial class InvoiceProductsReportPanel : UserControl
 		#region Initialize all columns
 
 		InvoiceProductsDataView.Columns.Clear();
-		InvoiceProductsDataView.ColumnCount = 9;
+		InvoiceProductsDataView.ColumnCount = 8;
 
 		InvoiceProductsDataView.Columns[(int)ProductColumn.InvoiceId].Name = "Invoice ID";
 		InvoiceProductsDataView.Columns[(int)ProductColumn.InvoiceId].Width = 200;
@@ -70,10 +68,6 @@ public partial class InvoiceProductsReportPanel : UserControl
 		InvoiceProductsDataView.Columns[(int)ProductColumn.Total].ReadOnly = true;
 		InvoiceProductsDataView.Columns[(int)ProductColumn.Total].DefaultCellStyle.Format = "N2";
 
-		InvoiceProductsDataView.Columns[(int)ProductColumn.Category].Name = "กลุ่มสินค้า";
-		InvoiceProductsDataView.Columns[(int)ProductColumn.Category].Width = 200;
-		InvoiceProductsDataView.Columns[(int)ProductColumn.Category].ReadOnly = true;
-
 		InvoiceProductsDataView.Columns[(int)ProductColumn.DateCreated].Name = "วันและเวลาที่บันทึก";
 		InvoiceProductsDataView.Columns[(int)ProductColumn.DateCreated].Width = 200;
 		InvoiceProductsDataView.Columns[(int)ProductColumn.DateCreated].ReadOnly = true;
@@ -97,7 +91,6 @@ public partial class InvoiceProductsReportPanel : UserControl
 		productRow[(int) ProductColumn.Quantity] = product.Quantity;
 		productRow[(int) ProductColumn.UnitPrice] = product.UnitPrice;
 		productRow[(int) ProductColumn.Total] = total;
-		productRow[(int) ProductColumn.Category] = IsHardwareProductGroup(product) ? "Hardware" : "General";
 		productRow[(int) ProductColumn.DateCreated] = product.DateCreated;
 		productRow[(int) ProductColumn.Note] = product.Note;
 
@@ -105,16 +98,6 @@ public partial class InvoiceProductsReportPanel : UserControl
 		var rowBackColor = rowIndex % 2 == 0 ? Color.FromArgb(38,38,38) : Color.FromArgb(48, 48, 48);
 
 		InvoiceProductsDataView.Rows[rowIndex].DefaultCellStyle.BackColor = rowBackColor;
-	}
-
-	private static bool IsHardwareProductGroup(InvoiceProductDto product)
-	{
-		return product.Category >= (int) ProductCategory.Hardware;
-	}
-
-	private static bool IsGeneralProductGroup(InvoiceProductDto product)
-	{
-		return product.Category < (int) ProductCategory.Hardware;
 	}
 
 	private void ShowInvoiceProducts(IEnumerable<InvoiceProductDto> products)
@@ -135,51 +118,10 @@ public partial class InvoiceProductsReportPanel : UserControl
 		return await _reportService.GetInvoiceProductsByDateRangeAsync(startDate, endDate);
 	}
 
-	private async void GeneralProductsOnlyButton_Click(object sender, EventArgs e)
-	{
-		if (!_products.Any())
-		{
-			_products = await GetInvoiceProductsAsync();
-		}
-
-		ShowInvoiceProducts(_products.Where(IsGeneralProductGroup));
-	}
-
-	private async void HardwareProductsOnlyButton_Click(object sender, EventArgs e)
-	{
-		if (!_products.Any())
-		{
-			_products = await GetInvoiceProductsAsync();
-		}
-
-		ShowInvoiceProducts(_products.Where(IsHardwareProductGroup));
-	}
-
-	private async void AllProductGroupsButton_Click(object sender, EventArgs e)
-	{
-		if (!_products.Any())
-		{
-			_products = await GetInvoiceProductsAsync();
-		}
-
-		ShowInvoiceProducts(_products);
-	}
-
 	private async void ShowProductsByDateRangeButton_Click(object sender, EventArgs e)
 	{
 		_products = await GetInvoiceProductsAsync();
 
-		if (AllProductGroupsButton.Checked)
-		{
-			ShowInvoiceProducts(_products);
-		}
-		else if (HardwareProductsOnlyButton.Checked)
-		{
-			ShowInvoiceProducts(_products.Where(IsHardwareProductGroup));
-		}
-		else
-		{
-			ShowInvoiceProducts(_products.Where(IsGeneralProductGroup));
-		}
+		ShowInvoiceProducts(_products);
 	}
 }

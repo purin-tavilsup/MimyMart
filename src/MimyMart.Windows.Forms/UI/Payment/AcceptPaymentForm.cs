@@ -74,10 +74,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
 
 			AcceptPaymentButton.Visible = true;
 			RefundButton.Visible = false;
-			AcceptPayLaterPaymentButton.Visible = false;
 			KeypadPanel.Enabled = true;
-
-			EnableAcceptablePaymentTypesForRegularPayment();
 		}
 
 		private void ConfigureFormForRefund(decimal refundAmount)
@@ -89,28 +86,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
 			NoteTextBox.Texts = "Refund";
 			RefundButton.Visible = true;
 			AcceptPaymentButton.Visible = false;
-			AcceptPayLaterPaymentButton.Visible = false;
 			KeypadPanel.Enabled = false;
-
-			DisableNonAcceptablePaymentTypeSForRefund();
-		}
-
-		private void DisableNonAcceptablePaymentTypeSForRefund()
-		{
-			PayBy5050Button.Enabled = false;
-			PayByWeLoveButton.Enabled = false;
-			PayByWeWinButton.Enabled = false;
-			PayByWelfareCardButton.Enabled = false;
-			PayByPayLaterButton.Enabled = false;
-		}
-
-		private void EnableAcceptablePaymentTypesForRegularPayment()
-		{
-			PayBy5050Button.Enabled = true;
-			PayByWeLoveButton.Enabled = true;
-			PayByWeWinButton.Enabled = true;
-			PayByWelfareCardButton.Enabled = true;
-			PayByPayLaterButton.Enabled = true;
 		}
 
         private bool ValidatePaymentType()
@@ -119,14 +95,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             {
 				_messageForm.BringToFront();
 				_messageForm.ShowDialog("กรุณาเลือกวิธีการชำระเงิน", "วิธีการชำระเงินยังไม่ถูกเลือก");
-
-				return false;
-			}
-
-			if (_selectedPaymentType == PaymentType.PayLater && !NoteTextBox.Texts.HasValue())
-			{
-				_messageForm.BringToFront();
-				_messageForm.ShowDialog("กรุณาใส่ Note สำหรับการลงบัญชี", "Note ไม่ถูกต้อง");
 
 				return false;
 			}
@@ -175,33 +143,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
 			ChangePaymentType(PaymentType.MoneyTransfer);
         }
 
-		private void PayBy5050Button_Click(object sender, EventArgs e)
-		{
-			ChangePaymentType(PaymentType.FiftyFifty);
-        }
-
-		private void PayByWeWinButton_Click(object sender, EventArgs e)
-		{
-			ChangePaymentType(PaymentType.WeWin);
-        }
-
-		private void PayByWelfareCardButton_Click(object sender, EventArgs e)
-		{
-			ChangePaymentType(PaymentType.WelfareCard);
-        }
-
-		private void PayByWeLoveButton_Click(object sender, EventArgs e)
-		{
-			ChangePaymentType(PaymentType.M33WeLove);
-        }
-        
-		private void PayByPayLaterButton_Click(object sender, EventArgs e)
-		{
-			ChangePaymentType(PaymentType.PayLater);
-
-			DisplayValue(_saleService.CalculateBalanceRemaining());
-		}
-
 		private void ChangePaymentType(PaymentType type)
 		{
 			_selectedPaymentType = type;
@@ -211,8 +152,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
 
 			var isRefundInvoice = _saleService.IsRefundInvoice();
 
-			AcceptPaymentButton.Visible = type != PaymentType.PayLater && !isRefundInvoice;
-			AcceptPayLaterPaymentButton.Visible = type == PaymentType.PayLater && !isRefundInvoice;
+			AcceptPaymentButton.Visible = !isRefundInvoice;
 		}
 
         private void AddByBankNoteValue(decimal value)
@@ -374,20 +314,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
         private void DisplayValue(string value)
         {
             PaymentAmountLabel.Text = value;
-        }
-
-        private void AcceptPayLaterPaymentButton_Click(object sender, EventArgs e)
-        {
-			if (!ValidatePaymentType())
-				return;
-
-			var note = NoteTextBox.Texts.Trim();
-
-			_amount = _saleService.CalculateBalanceRemaining();
-
-			_saleService.AddPayment(_selectedPaymentType, _amount, note);
-			
-			Hide();
         }
     }
 }

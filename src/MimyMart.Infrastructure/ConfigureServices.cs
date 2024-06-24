@@ -20,16 +20,15 @@ public static class ConfigureServices
 		// Persistence
 		services.AddSingleton<IReportDbConnectionProvider, ReportDbConnectionProvider>();
 		services.AddScoped<IReportRepository, ReportRepository>();
-        
+
 		services.AddSingleton<IDbConnectionProvider, DbConnectionProvider>()
-                .AddSingleton<IInvoiceRepository, InvoiceRepository>()
-                .AddSingleton<IInvoiceProductRepository, InvoiceProductRepository>()
-                .AddSingleton<IInvoicePaymentRepository, InvoicePaymentRepository>()
-                .AddSingleton<IInventoryProductRepository, InventoryProductRepository>()
-                .AddSingleton<IStoreConstantRepository, StoreConstantRepository>()
-                .AddSingleton<IUserRepository, UserRepository>()
-				.AddSingleton<IUserCredentialRepository, UserCredentialRepository>()
-                .AddSingleton<IPayLaterPaymentRepository, PayLaterRepository>();
+				.AddSingleton<IInvoiceRepository, InvoiceRepository>()
+				.AddSingleton<IInvoiceProductRepository, InvoiceProductRepository>()
+				.AddSingleton<IInvoicePaymentRepository, InvoicePaymentRepository>()
+				.AddSingleton<IInventoryProductRepository, InventoryProductRepository>()
+				.AddSingleton<IStoreConstantRepository, StoreConstantRepository>()
+				.AddSingleton<IUserRepository, UserRepository>()
+				.AddSingleton<IUserCredentialRepository, UserCredentialRepository>();
 
         services.AddSingleton<IStoreConstants, StoreConstants>()
 				.AddSingleton<IStoreConfigurationService, StoreConfigurationService>()

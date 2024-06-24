@@ -28,415 +28,394 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.NavigationPanel = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.DataFeedStatusLabel = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.VersionLabel = new System.Windows.Forms.Label();
-            this.LoggedInUserLabel = new System.Windows.Forms.Label();
-            this.DateTimeLabel = new System.Windows.Forms.Label();
-            this.TitlePanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.ResizeWindowsButton = new ModernUI.ModernButton();
-            this.CloseWindowsButton = new ModernUI.ModernButton();
-            this.MinimizeWindowsButton = new ModernUI.ModernButton();
-            this.StoreNameLabel = new System.Windows.Forms.Label();
-            this.ActivePanel = new System.Windows.Forms.Panel();
-            this.ControlPanel = new System.Windows.Forms.Panel();
-            this.CloseApplicationButton = new System.Windows.Forms.Button();
-            this.LogInButton = new System.Windows.Forms.Button();
-            this.SettingsButton = new System.Windows.Forms.Button();
-            this.AccountsReceivableButton = new System.Windows.Forms.Button();
-            this.ReportsButton = new System.Windows.Forms.Button();
-            this.UsersButton = new System.Windows.Forms.Button();
-            this.InventoryButton = new System.Windows.Forms.Button();
-            this.SaleButton = new System.Windows.Forms.Button();
-            this.NavigationPanel.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.TitlePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.ControlPanel.SuspendLayout();
-            this.SuspendLayout();
+            var resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            NavigationPanel = new Panel();
+            panel2 = new Panel();
+            DataFeedStatusLabel = new Label();
+            panel1 = new Panel();
+            VersionLabel = new Label();
+            LoggedInUserLabel = new Label();
+            DateTimeLabel = new Label();
+            TitlePanel = new Panel();
+            pictureBox2 = new PictureBox();
+            panel9 = new Panel();
+            ResizeWindowsButton = new ModernUI.ModernButton();
+            CloseWindowsButton = new ModernUI.ModernButton();
+            MinimizeWindowsButton = new ModernUI.ModernButton();
+            StoreNameLabel = new Label();
+            ActivePanel = new Panel();
+            ControlPanel = new Panel();
+            CloseApplicationButton = new Button();
+            LogInButton = new Button();
+            SettingsButton = new Button();
+            ReportsButton = new Button();
+            UsersButton = new Button();
+            InventoryButton = new Button();
+            SaleButton = new Button();
+            NavigationPanel.SuspendLayout();
+            panel2.SuspendLayout();
+            panel1.SuspendLayout();
+            TitlePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            panel9.SuspendLayout();
+            ControlPanel.SuspendLayout();
+            SuspendLayout();
             // 
             // NavigationPanel
             // 
-            this.NavigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.NavigationPanel.Controls.Add(this.panel2);
-            this.NavigationPanel.Controls.Add(this.panel1);
-            this.NavigationPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.NavigationPanel.Location = new System.Drawing.Point(0, 1024);
-            this.NavigationPanel.Name = "NavigationPanel";
-            this.NavigationPanel.Size = new System.Drawing.Size(1800, 41);
-            this.NavigationPanel.TabIndex = 0;
+            NavigationPanel.BackColor = Color.FromArgb(25, 25, 25);
+            NavigationPanel.Controls.Add(panel2);
+            NavigationPanel.Controls.Add(panel1);
+            NavigationPanel.Dock = DockStyle.Bottom;
+            NavigationPanel.Location = new Point(0, 1024);
+            NavigationPanel.Name = "NavigationPanel";
+            NavigationPanel.Size = new Size(1800, 41);
+            NavigationPanel.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.DataFeedStatusLabel);
-            this.panel2.Location = new System.Drawing.Point(549, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(421, 41);
-            this.panel2.TabIndex = 8;
+            panel2.Controls.Add(DataFeedStatusLabel);
+            panel2.Location = new Point(549, 0);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(421, 41);
+            panel2.TabIndex = 8;
             // 
             // DataFeedStatusLabel
             // 
-            this.DataFeedStatusLabel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataFeedStatusLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.DataFeedStatusLabel.Location = new System.Drawing.Point(3, 3);
-            this.DataFeedStatusLabel.Name = "DataFeedStatusLabel";
-            this.DataFeedStatusLabel.Size = new System.Drawing.Size(404, 35);
-            this.DataFeedStatusLabel.TabIndex = 6;
-            this.DataFeedStatusLabel.Text = "DataFeed Push :";
-            this.DataFeedStatusLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            DataFeedStatusLabel.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DataFeedStatusLabel.ForeColor = Color.WhiteSmoke;
+            DataFeedStatusLabel.Location = new Point(3, 3);
+            DataFeedStatusLabel.Name = "DataFeedStatusLabel";
+            DataFeedStatusLabel.Size = new Size(404, 35);
+            DataFeedStatusLabel.TabIndex = 6;
+            DataFeedStatusLabel.Text = "DataFeed Push :";
+            DataFeedStatusLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.VersionLabel);
-            this.panel1.Controls.Add(this.LoggedInUserLabel);
-            this.panel1.Controls.Add(this.DateTimeLabel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(972, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(828, 41);
-            this.panel1.TabIndex = 7;
+            panel1.Controls.Add(VersionLabel);
+            panel1.Controls.Add(LoggedInUserLabel);
+            panel1.Controls.Add(DateTimeLabel);
+            panel1.Dock = DockStyle.Right;
+            panel1.Location = new Point(972, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(828, 41);
+            panel1.TabIndex = 7;
             // 
             // VersionLabel
             // 
-            this.VersionLabel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.VersionLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.VersionLabel.Location = new System.Drawing.Point(589, 0);
-            this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(236, 35);
-            this.VersionLabel.TabIndex = 7;
-            this.VersionLabel.Text = "Version:";
-            this.VersionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            VersionLabel.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            VersionLabel.ForeColor = Color.WhiteSmoke;
+            VersionLabel.Location = new Point(589, 0);
+            VersionLabel.Name = "VersionLabel";
+            VersionLabel.Size = new Size(236, 35);
+            VersionLabel.TabIndex = 7;
+            VersionLabel.Text = "Version:";
+            VersionLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // LoggedInUserLabel
             // 
-            this.LoggedInUserLabel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoggedInUserLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.LoggedInUserLabel.Location = new System.Drawing.Point(3, 0);
-            this.LoggedInUserLabel.Name = "LoggedInUserLabel";
-            this.LoggedInUserLabel.Size = new System.Drawing.Size(265, 35);
-            this.LoggedInUserLabel.TabIndex = 5;
-            this.LoggedInUserLabel.Text = "User:";
-            this.LoggedInUserLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            LoggedInUserLabel.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LoggedInUserLabel.ForeColor = Color.WhiteSmoke;
+            LoggedInUserLabel.Location = new Point(3, 0);
+            LoggedInUserLabel.Name = "LoggedInUserLabel";
+            LoggedInUserLabel.Size = new Size(265, 35);
+            LoggedInUserLabel.TabIndex = 5;
+            LoggedInUserLabel.Text = "User:";
+            LoggedInUserLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // DateTimeLabel
             // 
-            this.DateTimeLabel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DateTimeLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.DateTimeLabel.Location = new System.Drawing.Point(285, 0);
-            this.DateTimeLabel.Name = "DateTimeLabel";
-            this.DateTimeLabel.Size = new System.Drawing.Size(298, 35);
-            this.DateTimeLabel.TabIndex = 6;
-            this.DateTimeLabel.Text = "Date:";
-            this.DateTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            DateTimeLabel.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            DateTimeLabel.ForeColor = Color.WhiteSmoke;
+            DateTimeLabel.Location = new Point(285, 0);
+            DateTimeLabel.Name = "DateTimeLabel";
+            DateTimeLabel.Size = new Size(298, 35);
+            DateTimeLabel.TabIndex = 6;
+            DateTimeLabel.Text = "Date:";
+            DateTimeLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // TitlePanel
             // 
-            this.TitlePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.TitlePanel.Controls.Add(this.pictureBox2);
-            this.TitlePanel.Controls.Add(this.panel9);
-            this.TitlePanel.Controls.Add(this.StoreNameLabel);
-            this.TitlePanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.TitlePanel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitlePanel.ForeColor = System.Drawing.Color.LightGreen;
-            this.TitlePanel.Location = new System.Drawing.Point(0, 0);
-            this.TitlePanel.Name = "TitlePanel";
-            this.TitlePanel.Size = new System.Drawing.Size(1800, 52);
-            this.TitlePanel.TabIndex = 1;
+            TitlePanel.BackColor = Color.FromArgb(25, 25, 25);
+            TitlePanel.Controls.Add(pictureBox2);
+            TitlePanel.Controls.Add(panel9);
+            TitlePanel.Controls.Add(StoreNameLabel);
+            TitlePanel.Dock = DockStyle.Top;
+            TitlePanel.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            TitlePanel.ForeColor = Color.LightGreen;
+            TitlePanel.Location = new Point(0, 0);
+            TitlePanel.Name = "TitlePanel";
+            TitlePanel.Size = new Size(1800, 52);
+            TitlePanel.TabIndex = 1;
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::MimyMart.Windows.Forms.Properties.Resources.Rungrat_Store_Logo;
-            this.pictureBox2.Location = new System.Drawing.Point(12, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 88;
-            this.pictureBox2.TabStop = false;
+            pictureBox2.Image = Properties.Resources.Rungrat_Store_Logo;
+            pictureBox2.Location = new Point(12, 2);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(50, 50);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 88;
+            pictureBox2.TabStop = false;
             // 
             // panel9
             // 
-            this.panel9.Controls.Add(this.ResizeWindowsButton);
-            this.panel9.Controls.Add(this.CloseWindowsButton);
-            this.panel9.Controls.Add(this.MinimizeWindowsButton);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel9.Location = new System.Drawing.Point(1621, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(179, 52);
-            this.panel9.TabIndex = 4;
+            panel9.Controls.Add(ResizeWindowsButton);
+            panel9.Controls.Add(CloseWindowsButton);
+            panel9.Controls.Add(MinimizeWindowsButton);
+            panel9.Dock = DockStyle.Right;
+            panel9.Location = new Point(1621, 0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(179, 52);
+            panel9.TabIndex = 4;
             // 
             // ResizeWindowsButton
             // 
-            this.ResizeWindowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ResizeWindowsButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ResizeWindowsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ResizeWindowsButton.BorderRadius = 19;
-            this.ResizeWindowsButton.BorderSize = 1;
-            this.ResizeWindowsButton.FlatAppearance.BorderSize = 0;
-            this.ResizeWindowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ResizeWindowsButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResizeWindowsButton.ForeColor = System.Drawing.Color.White;
-            this.ResizeWindowsButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.maximize_window_24px;
-            this.ResizeWindowsButton.Location = new System.Drawing.Point(72, 9);
-            this.ResizeWindowsButton.Name = "ResizeWindowsButton";
-            this.ResizeWindowsButton.Size = new System.Drawing.Size(35, 35);
-            this.ResizeWindowsButton.TabIndex = 86;
-            this.ResizeWindowsButton.TextColor = System.Drawing.Color.White;
-            this.ResizeWindowsButton.UseVisualStyleBackColor = false;
-            this.ResizeWindowsButton.Click += new System.EventHandler(this.ResizeWindows_Click);
+            ResizeWindowsButton.BackColor = Color.FromArgb(25, 25, 25);
+            ResizeWindowsButton.BackgroundColor = Color.FromArgb(25, 25, 25);
+            ResizeWindowsButton.BorderColor = Color.FromArgb(38, 38, 38);
+            ResizeWindowsButton.BorderRadius = 19;
+            ResizeWindowsButton.BorderSize = 1;
+            ResizeWindowsButton.FlatAppearance.BorderSize = 0;
+            ResizeWindowsButton.FlatStyle = FlatStyle.Flat;
+            ResizeWindowsButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ResizeWindowsButton.ForeColor = Color.White;
+            ResizeWindowsButton.Image = Properties.Resources.maximize_window_24px;
+            ResizeWindowsButton.Location = new Point(72, 9);
+            ResizeWindowsButton.Name = "ResizeWindowsButton";
+            ResizeWindowsButton.Size = new Size(35, 35);
+            ResizeWindowsButton.TabIndex = 86;
+            ResizeWindowsButton.TextColor = Color.White;
+            ResizeWindowsButton.UseVisualStyleBackColor = false;
+            ResizeWindowsButton.Click += ResizeWindows_Click;
             // 
             // CloseWindowsButton
             // 
-            this.CloseWindowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.CloseWindowsButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.CloseWindowsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.CloseWindowsButton.BorderRadius = 19;
-            this.CloseWindowsButton.BorderSize = 1;
-            this.CloseWindowsButton.FlatAppearance.BorderSize = 0;
-            this.CloseWindowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseWindowsButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseWindowsButton.ForeColor = System.Drawing.Color.White;
-            this.CloseWindowsButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.close_window_24px;
-            this.CloseWindowsButton.Location = new System.Drawing.Point(132, 9);
-            this.CloseWindowsButton.Name = "CloseWindowsButton";
-            this.CloseWindowsButton.Size = new System.Drawing.Size(35, 35);
-            this.CloseWindowsButton.TabIndex = 87;
-            this.CloseWindowsButton.TextColor = System.Drawing.Color.White;
-            this.CloseWindowsButton.UseVisualStyleBackColor = false;
-            this.CloseWindowsButton.Click += new System.EventHandler(this.CloseWindows_Click);
+            CloseWindowsButton.BackColor = Color.FromArgb(25, 25, 25);
+            CloseWindowsButton.BackgroundColor = Color.FromArgb(25, 25, 25);
+            CloseWindowsButton.BorderColor = Color.FromArgb(38, 38, 38);
+            CloseWindowsButton.BorderRadius = 19;
+            CloseWindowsButton.BorderSize = 1;
+            CloseWindowsButton.FlatAppearance.BorderSize = 0;
+            CloseWindowsButton.FlatStyle = FlatStyle.Flat;
+            CloseWindowsButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CloseWindowsButton.ForeColor = Color.White;
+            CloseWindowsButton.Image = Properties.Resources.close_window_24px;
+            CloseWindowsButton.Location = new Point(132, 9);
+            CloseWindowsButton.Name = "CloseWindowsButton";
+            CloseWindowsButton.Size = new Size(35, 35);
+            CloseWindowsButton.TabIndex = 87;
+            CloseWindowsButton.TextColor = Color.White;
+            CloseWindowsButton.UseVisualStyleBackColor = false;
+            CloseWindowsButton.Click += CloseWindows_Click;
             // 
             // MinimizeWindowsButton
             // 
-            this.MinimizeWindowsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.MinimizeWindowsButton.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.MinimizeWindowsButton.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.MinimizeWindowsButton.BorderRadius = 19;
-            this.MinimizeWindowsButton.BorderSize = 1;
-            this.MinimizeWindowsButton.FlatAppearance.BorderSize = 0;
-            this.MinimizeWindowsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.MinimizeWindowsButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinimizeWindowsButton.ForeColor = System.Drawing.Color.White;
-            this.MinimizeWindowsButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.minimize_window_24px;
-            this.MinimizeWindowsButton.Location = new System.Drawing.Point(11, 9);
-            this.MinimizeWindowsButton.Name = "MinimizeWindowsButton";
-            this.MinimizeWindowsButton.Size = new System.Drawing.Size(35, 35);
-            this.MinimizeWindowsButton.TabIndex = 85;
-            this.MinimizeWindowsButton.TextColor = System.Drawing.Color.White;
-            this.MinimizeWindowsButton.UseVisualStyleBackColor = false;
-            this.MinimizeWindowsButton.Click += new System.EventHandler(this.MinimizeWindows_Click);
+            MinimizeWindowsButton.BackColor = Color.FromArgb(25, 25, 25);
+            MinimizeWindowsButton.BackgroundColor = Color.FromArgb(25, 25, 25);
+            MinimizeWindowsButton.BorderColor = Color.FromArgb(38, 38, 38);
+            MinimizeWindowsButton.BorderRadius = 19;
+            MinimizeWindowsButton.BorderSize = 1;
+            MinimizeWindowsButton.FlatAppearance.BorderSize = 0;
+            MinimizeWindowsButton.FlatStyle = FlatStyle.Flat;
+            MinimizeWindowsButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            MinimizeWindowsButton.ForeColor = Color.White;
+            MinimizeWindowsButton.Image = Properties.Resources.minimize_window_24px;
+            MinimizeWindowsButton.Location = new Point(11, 9);
+            MinimizeWindowsButton.Name = "MinimizeWindowsButton";
+            MinimizeWindowsButton.Size = new Size(35, 35);
+            MinimizeWindowsButton.TabIndex = 85;
+            MinimizeWindowsButton.TextColor = Color.White;
+            MinimizeWindowsButton.UseVisualStyleBackColor = false;
+            MinimizeWindowsButton.Click += MinimizeWindows_Click;
             // 
             // StoreNameLabel
             // 
-            this.StoreNameLabel.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StoreNameLabel.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.StoreNameLabel.Location = new System.Drawing.Point(80, 9);
-            this.StoreNameLabel.Name = "StoreNameLabel";
-            this.StoreNameLabel.Size = new System.Drawing.Size(890, 39);
-            this.StoreNameLabel.TabIndex = 0;
-            this.StoreNameLabel.Text = "Store Name";
-            this.StoreNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            StoreNameLabel.Font = new Font("FC Subject [Non-commercial] Reg", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            StoreNameLabel.ForeColor = Color.WhiteSmoke;
+            StoreNameLabel.Location = new Point(80, 9);
+            StoreNameLabel.Name = "StoreNameLabel";
+            StoreNameLabel.Size = new Size(890, 39);
+            StoreNameLabel.TabIndex = 0;
+            StoreNameLabel.Text = "Store Name";
+            StoreNameLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // ActivePanel
             // 
-            this.ActivePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ActivePanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ActivePanel.Location = new System.Drawing.Point(298, 52);
-            this.ActivePanel.Name = "ActivePanel";
-            this.ActivePanel.Size = new System.Drawing.Size(1502, 972);
-            this.ActivePanel.TabIndex = 3;
+            ActivePanel.BackColor = Color.FromArgb(30, 30, 30);
+            ActivePanel.Dock = DockStyle.Fill;
+            ActivePanel.Location = new Point(298, 52);
+            ActivePanel.Name = "ActivePanel";
+            ActivePanel.Size = new Size(1502, 972);
+            ActivePanel.TabIndex = 3;
             // 
             // ControlPanel
             // 
-            this.ControlPanel.Controls.Add(this.CloseApplicationButton);
-            this.ControlPanel.Controls.Add(this.LogInButton);
-            this.ControlPanel.Controls.Add(this.SettingsButton);
-            this.ControlPanel.Controls.Add(this.AccountsReceivableButton);
-            this.ControlPanel.Controls.Add(this.ReportsButton);
-            this.ControlPanel.Controls.Add(this.UsersButton);
-            this.ControlPanel.Controls.Add(this.InventoryButton);
-            this.ControlPanel.Controls.Add(this.SaleButton);
-            this.ControlPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ControlPanel.Location = new System.Drawing.Point(0, 52);
-            this.ControlPanel.Name = "ControlPanel";
-            this.ControlPanel.Size = new System.Drawing.Size(298, 972);
-            this.ControlPanel.TabIndex = 4;
+            ControlPanel.Controls.Add(CloseApplicationButton);
+            ControlPanel.Controls.Add(LogInButton);
+            ControlPanel.Controls.Add(SettingsButton);
+            ControlPanel.Controls.Add(ReportsButton);
+            ControlPanel.Controls.Add(UsersButton);
+            ControlPanel.Controls.Add(InventoryButton);
+            ControlPanel.Controls.Add(SaleButton);
+            ControlPanel.Dock = DockStyle.Left;
+            ControlPanel.Location = new Point(0, 52);
+            ControlPanel.Name = "ControlPanel";
+            ControlPanel.Size = new Size(298, 972);
+            ControlPanel.TabIndex = 4;
             // 
             // CloseApplicationButton
             // 
-            this.CloseApplicationButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.CloseApplicationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.CloseApplicationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.CloseApplicationButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CloseApplicationButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.CloseApplicationButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.CloseWindows_50;
-            this.CloseApplicationButton.Location = new System.Drawing.Point(3, 850);
-            this.CloseApplicationButton.Name = "CloseApplicationButton";
-            this.CloseApplicationButton.Size = new System.Drawing.Size(292, 115);
-            this.CloseApplicationButton.TabIndex = 5;
-            this.CloseApplicationButton.Text = "ออกจากโปรแกรม";
-            this.CloseApplicationButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.CloseApplicationButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.CloseApplicationButton.UseVisualStyleBackColor = false;
-            this.CloseApplicationButton.Click += new System.EventHandler(this.CloseApplicationButton_Click);
+            CloseApplicationButton.BackColor = Color.FromArgb(38, 38, 38);
+            CloseApplicationButton.BackgroundImageLayout = ImageLayout.Stretch;
+            CloseApplicationButton.FlatStyle = FlatStyle.Flat;
+            CloseApplicationButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            CloseApplicationButton.ForeColor = Color.DarkGray;
+            CloseApplicationButton.Image = Properties.Resources.CloseWindows_50;
+            CloseApplicationButton.Location = new Point(3, 729);
+            CloseApplicationButton.Name = "CloseApplicationButton";
+            CloseApplicationButton.Size = new Size(292, 115);
+            CloseApplicationButton.TabIndex = 5;
+            CloseApplicationButton.Text = "ออกจากโปรแกรม";
+            CloseApplicationButton.TextAlign = ContentAlignment.BottomCenter;
+            CloseApplicationButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            CloseApplicationButton.UseVisualStyleBackColor = false;
+            CloseApplicationButton.Click += CloseApplicationButton_Click;
             // 
             // LogInButton
             // 
-            this.LogInButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.LogInButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.LogInButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LogInButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LogInButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.LogInButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.LogInPanel_50;
-            this.LogInButton.Location = new System.Drawing.Point(3, 729);
-            this.LogInButton.Name = "LogInButton";
-            this.LogInButton.Size = new System.Drawing.Size(292, 115);
-            this.LogInButton.TabIndex = 5;
-            this.LogInButton.Text = "Log In";
-            this.LogInButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.LogInButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.LogInButton.UseVisualStyleBackColor = false;
-            this.LogInButton.Click += new System.EventHandler(this.LogInButton_Click);
+            LogInButton.BackColor = Color.FromArgb(38, 38, 38);
+            LogInButton.BackgroundImageLayout = ImageLayout.Stretch;
+            LogInButton.FlatStyle = FlatStyle.Flat;
+            LogInButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            LogInButton.ForeColor = Color.DarkGray;
+            LogInButton.Image = Properties.Resources.LogInPanel_50;
+            LogInButton.Location = new Point(3, 608);
+            LogInButton.Name = "LogInButton";
+            LogInButton.Size = new Size(292, 115);
+            LogInButton.TabIndex = 5;
+            LogInButton.Text = "Log In";
+            LogInButton.TextAlign = ContentAlignment.BottomCenter;
+            LogInButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            LogInButton.UseVisualStyleBackColor = false;
+            LogInButton.Click += LogInButton_Click;
             // 
             // SettingsButton
             // 
-            this.SettingsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.SettingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SettingsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SettingsButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.SettingsButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.SettingsPanel_50;
-            this.SettingsButton.Location = new System.Drawing.Point(3, 608);
-            this.SettingsButton.Name = "SettingsButton";
-            this.SettingsButton.Size = new System.Drawing.Size(292, 115);
-            this.SettingsButton.TabIndex = 4;
-            this.SettingsButton.Text = "การตั้งค่า";
-            this.SettingsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.SettingsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.SettingsButton.UseVisualStyleBackColor = false;
-            this.SettingsButton.Click += new System.EventHandler(this.SettingsButton_Click);
-            // 
-            // AccountsReceivableButton
-            // 
-            this.AccountsReceivableButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.AccountsReceivableButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.AccountsReceivableButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AccountsReceivableButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AccountsReceivableButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.AccountsReceivableButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.Customer_Acounts_50;
-            this.AccountsReceivableButton.Location = new System.Drawing.Point(3, 487);
-            this.AccountsReceivableButton.Name = "AccountsReceivableButton";
-            this.AccountsReceivableButton.Size = new System.Drawing.Size(292, 115);
-            this.AccountsReceivableButton.TabIndex = 3;
-            this.AccountsReceivableButton.Text = "รายการลงบัญชี";
-            this.AccountsReceivableButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.AccountsReceivableButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.AccountsReceivableButton.UseVisualStyleBackColor = false;
-            this.AccountsReceivableButton.Click += new System.EventHandler(this.AccountsReceivableButton_Click);
+            SettingsButton.BackColor = Color.FromArgb(38, 38, 38);
+            SettingsButton.BackgroundImageLayout = ImageLayout.Stretch;
+            SettingsButton.FlatStyle = FlatStyle.Flat;
+            SettingsButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SettingsButton.ForeColor = Color.DarkGray;
+            SettingsButton.Image = Properties.Resources.SettingsPanel_50;
+            SettingsButton.Location = new Point(3, 487);
+            SettingsButton.Name = "SettingsButton";
+            SettingsButton.Size = new Size(292, 115);
+            SettingsButton.TabIndex = 4;
+            SettingsButton.Text = "การตั้งค่า";
+            SettingsButton.TextAlign = ContentAlignment.BottomCenter;
+            SettingsButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            SettingsButton.UseVisualStyleBackColor = false;
+            SettingsButton.Click += SettingsButton_Click;
             // 
             // ReportsButton
             // 
-            this.ReportsButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.ReportsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ReportsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ReportsButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportsButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.ReportsButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.Reports_50;
-            this.ReportsButton.Location = new System.Drawing.Point(3, 366);
-            this.ReportsButton.Name = "ReportsButton";
-            this.ReportsButton.Size = new System.Drawing.Size(292, 115);
-            this.ReportsButton.TabIndex = 3;
-            this.ReportsButton.Text = "รายงาน";
-            this.ReportsButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.ReportsButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.ReportsButton.UseVisualStyleBackColor = false;
-            this.ReportsButton.Click += new System.EventHandler(this.ReportsButton_Click);
+            ReportsButton.BackColor = Color.FromArgb(38, 38, 38);
+            ReportsButton.BackgroundImageLayout = ImageLayout.Stretch;
+            ReportsButton.FlatStyle = FlatStyle.Flat;
+            ReportsButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ReportsButton.ForeColor = Color.DarkGray;
+            ReportsButton.Image = Properties.Resources.Reports_50;
+            ReportsButton.Location = new Point(3, 366);
+            ReportsButton.Name = "ReportsButton";
+            ReportsButton.Size = new Size(292, 115);
+            ReportsButton.TabIndex = 3;
+            ReportsButton.Text = "รายงาน";
+            ReportsButton.TextAlign = ContentAlignment.BottomCenter;
+            ReportsButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            ReportsButton.UseVisualStyleBackColor = false;
+            ReportsButton.Click += ReportsButton_Click;
             // 
             // UsersButton
             // 
-            this.UsersButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.UsersButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.UsersButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.UsersButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsersButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.UsersButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.User_50;
-            this.UsersButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.UsersButton.Location = new System.Drawing.Point(3, 245);
-            this.UsersButton.Name = "UsersButton";
-            this.UsersButton.Size = new System.Drawing.Size(292, 115);
-            this.UsersButton.TabIndex = 2;
-            this.UsersButton.Text = "การจัดการผู้ใช้";
-            this.UsersButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.UsersButton.UseVisualStyleBackColor = false;
-            this.UsersButton.Click += new System.EventHandler(this.UsersButton_Click);
+            UsersButton.BackColor = Color.FromArgb(38, 38, 38);
+            UsersButton.BackgroundImageLayout = ImageLayout.Stretch;
+            UsersButton.FlatStyle = FlatStyle.Flat;
+            UsersButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            UsersButton.ForeColor = Color.DarkGray;
+            UsersButton.Image = Properties.Resources.User_50;
+            UsersButton.ImageAlign = ContentAlignment.BottomCenter;
+            UsersButton.Location = new Point(3, 245);
+            UsersButton.Name = "UsersButton";
+            UsersButton.Size = new Size(292, 115);
+            UsersButton.TabIndex = 2;
+            UsersButton.Text = "การจัดการผู้ใช้";
+            UsersButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            UsersButton.UseVisualStyleBackColor = false;
+            UsersButton.Click += UsersButton_Click;
             // 
             // InventoryButton
             // 
-            this.InventoryButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.InventoryButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.InventoryButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.InventoryButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.InventoryButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.InventoryButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.Inventory_50;
-            this.InventoryButton.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.InventoryButton.Location = new System.Drawing.Point(3, 124);
-            this.InventoryButton.Name = "InventoryButton";
-            this.InventoryButton.Size = new System.Drawing.Size(292, 115);
-            this.InventoryButton.TabIndex = 1;
-            this.InventoryButton.Text = "การจัดการสินค้า";
-            this.InventoryButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.InventoryButton.UseVisualStyleBackColor = false;
-            this.InventoryButton.Click += new System.EventHandler(this.InventoryButton_Click);
+            InventoryButton.BackColor = Color.FromArgb(38, 38, 38);
+            InventoryButton.BackgroundImageLayout = ImageLayout.Stretch;
+            InventoryButton.FlatStyle = FlatStyle.Flat;
+            InventoryButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            InventoryButton.ForeColor = Color.DarkGray;
+            InventoryButton.Image = Properties.Resources.Inventory_50;
+            InventoryButton.ImageAlign = ContentAlignment.BottomCenter;
+            InventoryButton.Location = new Point(3, 124);
+            InventoryButton.Name = "InventoryButton";
+            InventoryButton.Size = new Size(292, 115);
+            InventoryButton.TabIndex = 1;
+            InventoryButton.Text = "การจัดการสินค้า";
+            InventoryButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            InventoryButton.UseVisualStyleBackColor = false;
+            InventoryButton.Click += InventoryButton_Click;
             // 
             // SaleButton
             // 
-            this.SaleButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(38)))), ((int)(((byte)(38)))), ((int)(((byte)(38)))));
-            this.SaleButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.SaleButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SaleButton.Font = new System.Drawing.Font("FC Subject [Non-commercial] Reg", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaleButton.ForeColor = System.Drawing.Color.DarkGray;
-            this.SaleButton.Image = global::MimyMart.Windows.Forms.Properties.Resources.Cashier_50;
-            this.SaleButton.Location = new System.Drawing.Point(3, 3);
-            this.SaleButton.Name = "SaleButton";
-            this.SaleButton.Size = new System.Drawing.Size(292, 115);
-            this.SaleButton.TabIndex = 0;
-            this.SaleButton.Text = "ขายสินค้า";
-            this.SaleButton.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.SaleButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.SaleButton.UseVisualStyleBackColor = false;
-            this.SaleButton.Click += new System.EventHandler(this.SaleButton_Click);
+            SaleButton.BackColor = Color.FromArgb(38, 38, 38);
+            SaleButton.BackgroundImageLayout = ImageLayout.Stretch;
+            SaleButton.FlatStyle = FlatStyle.Flat;
+            SaleButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SaleButton.ForeColor = Color.DarkGray;
+            SaleButton.Image = Properties.Resources.Cashier_50;
+            SaleButton.Location = new Point(3, 3);
+            SaleButton.Name = "SaleButton";
+            SaleButton.Size = new Size(292, 115);
+            SaleButton.TabIndex = 0;
+            SaleButton.Text = "ขายสินค้า";
+            SaleButton.TextAlign = ContentAlignment.BottomCenter;
+            SaleButton.TextImageRelation = TextImageRelation.ImageAboveText;
+            SaleButton.UseVisualStyleBackColor = false;
+            SaleButton.Click += SaleButton_Click;
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.ClientSize = new System.Drawing.Size(1800, 1065);
-            this.Controls.Add(this.ActivePanel);
-            this.Controls.Add(this.ControlPanel);
-            this.Controls.Add(this.TitlePanel);
-            this.Controls.Add(this.NavigationPanel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Indy POS";
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.Shown += new System.EventHandler(this.MainForm_Shown);
-            this.NavigationPanel.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.TitlePanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.ControlPanel.ResumeLayout(false);
-            this.ResumeLayout(false);
-
+            AutoScaleDimensions = new SizeF(6F, 13F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(30, 30, 30);
+            ClientSize = new Size(1800, 1065);
+            Controls.Add(ActivePanel);
+            Controls.Add(ControlPanel);
+            Controls.Add(TitlePanel);
+            Controls.Add(NavigationPanel);
+            FormBorderStyle = FormBorderStyle.None;
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Indy POS";
+            Load += MainForm_Load;
+            Shown += MainForm_Shown;
+            NavigationPanel.ResumeLayout(false);
+            panel2.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            TitlePanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            panel9.ResumeLayout(false);
+            ControlPanel.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -449,7 +428,6 @@
         private System.Windows.Forms.Button UsersButton;
         private System.Windows.Forms.Button SettingsButton;
         private System.Windows.Forms.Button ReportsButton;
-        private System.Windows.Forms.Button AccountsReceivableButton;
         private System.Windows.Forms.Button LogInButton;
         private System.Windows.Forms.Label StoreNameLabel;
 		private System.Windows.Forms.Button CloseApplicationButton;

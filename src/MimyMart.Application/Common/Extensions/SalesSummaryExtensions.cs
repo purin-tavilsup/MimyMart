@@ -11,17 +11,7 @@ public static class SalesSummaryExtensions
 			Id = id,
 			Created = created,
 			ReferenceId = referenceId,
-			InvoiceTotal = summary.InvoiceTotal,
-			GeneralProductsTotal = summary.GeneralProductsTotal,
-			HardwareProductsTotal = summary.HardwareProductsTotal,
-			PayLaterPaymentsTotal = summary.PayLaterPaymentsTotal,
-			PayLaterPaymentsTotalForGeneralProducts = summary.PayLaterPaymentsTotalForGeneralProducts,
-			PayLaterPaymentsTotalForHardwareProducts = summary.PayLaterPaymentsTotalForHardwareProducts,
-			InvoiceTotalWithoutPayLaterPayments = summary.InvoiceTotalWithoutPayLaterPayments,
-			GeneralProductsTotalWithoutPayLaterPayments = summary.GeneralProductsTotalWithoutPayLaterPayments,
-			HardwareProductsTotalWithoutPayLaterPayments = summary.HardwareProductsTotalWithoutPayLaterPayments,
-			CompletedPayLaterPaymentsTotal = summary.CompletedPayLaterPaymentsTotal,
-			IncompletePayLaterPaymentsTotal = summary.IncompletePayLaterPaymentsTotal
+			InvoiceTotal = summary.InvoiceTotal
 		};
 	}
 }

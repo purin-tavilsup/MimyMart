@@ -31,8 +31,7 @@ public class CreateSalesReportCommandHandler : ICommandHandler<CreateSalesReport
 		
 		try
 		{
-			report = await _reportService.CreateSalesReportByInvoiceIdAsync(command.InvoiceId, 
-																			command.HasPayLaterPayment);
+			report = await _reportService.CreateSalesReportByInvoiceIdAsync(command.InvoiceId);
 			await _repository.AddSalesReportAsync(report);
 		}
 		catch (Exception ex)

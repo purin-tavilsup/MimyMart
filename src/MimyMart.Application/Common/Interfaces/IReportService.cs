@@ -3,7 +3,6 @@ using MimyMart.Application.Common.Models;
 using MimyMart.Application.InvoicePayments;
 using MimyMart.Application.InvoiceProducts;
 using MimyMart.Application.Invoices;
-using MimyMart.Application.PayLaterPayments;
 
 namespace MimyMart.Application.Common.Interfaces;
 
@@ -19,8 +18,6 @@ public interface IReportService
 
 	Task<IEnumerable<InvoiceDto>> GetInvoicesByPeriodAsync(TimePeriod period);
 
-	Task<IEnumerable<PayLaterPaymentDto>> GetPayLaterPaymentsByPeriodAsync(TimePeriod period);
-
 	Task<IEnumerable<InvoiceDto>> GetInvoicesByDateRangeAsync(DateOnly startDate, DateOnly endDate);
 
 	Task<IEnumerable<InvoiceProductDto>> GetInvoiceProductsByDateAsync(DateOnly date);
@@ -31,9 +28,7 @@ public interface IReportService
 
 	Task<IEnumerable<InvoicePaymentDto>> GetPaymentsByInvoiceIdAsync(int invoiceId);
 
-	Task<IEnumerable<PayLaterPaymentDto>> GetPayLaterPaymentsAsync();
-
-	Task<SalesReport> CreateSalesReportByInvoiceIdAsync(int invoiceId, bool hasPayLaterPayment);
+	Task<SalesReport> CreateSalesReportByInvoiceIdAsync(int invoiceId);
 
 	Task<PaymentsReport> CreatePaymentsReportByInvoiceIdAsync(int invoiceId);
 }

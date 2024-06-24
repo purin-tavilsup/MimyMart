@@ -11,12 +11,7 @@ public static class PaymentsSummaryExtensions
 			Id = id,
 			Created = created,
 			ReferenceId = referenceId,
-			MoneyTransferTotal = summary.MoneyTransferTotal,
-			FiftyFiftyTotal = summary.FiftyFiftyTotal,
-			M33WeLoveTotal = summary.M33WeLoveTotal,
-			WeWinTotal = summary.WeWinTotal,
-			WelfareCardTotal = summary.WelfareCardTotal,
-			PayLaterTotal = summary.PayLaterTotal
+			MoneyTransferTotal = summary.MoneyTransferTotal
 		};
 	}
 }

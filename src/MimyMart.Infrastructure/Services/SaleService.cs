@@ -13,7 +13,6 @@ using MimyMart.Application.InvoicePayments.Commands.CreateInvoicePayment;
 using MimyMart.Application.InvoiceProducts.Commands.CreateInvoiceProduct;
 using MimyMart.Application.Invoices.Commands.CreateInvoice;
 using MimyMart.Application.Notifications;
-using MimyMart.Application.PayLaterPayments.Commands.CreatePayLaterPayment;
 using MimyMart.Domain.Events;
 using Prism.Events;
 using Throw;
@@ -389,7 +388,7 @@ public class SaleService : ISaleService
 		await UpdateInventoryProductsSoldOnInvoice(invoiceInfo);
 		//---------------------------------------------------------
 		
-		await PublishSalesCompletedEventAsync(invoiceId, invoiceInfo.HasPayLaterPayment);
+		await PublishSalesCompletedEventAsync(invoiceId);
 
 		return invoiceInfo;
 	}
@@ -407,8 +406,7 @@ public class SaleService : ISaleService
 			InvoiceTotal = invoiceTotal,
 			PaymentTotal = paymentTotal,
 			Changes = CalculateChanges(),
-			IsRefundInvoice = isRefundInvoice,
-			HasPayLaterPayment = Payments.HasPayLayerPayment()
+			IsRefundInvoice = isRefundInvoice
 		};
 	}
 
@@ -478,12 +476,7 @@ public class SaleService : ISaleService
 		foreach(var payment in invoiceInfo.Payments)
 		{
 			var invoiceId = invoiceInfo.Id;
-			var paymentId = await AddPaymentToDatabaseAsync(payment, invoiceId);
-
-			if (payment.PaymentTypeId == (int) PaymentType.PayLater)
-			{
-				await AddPayLaterPaymentToDatabaseAsync(payment, paymentId, invoiceId);
-            }
+			_ = await AddPaymentToDatabaseAsync(payment, invoiceId);
         }
     }
 
@@ -499,23 +492,10 @@ public class SaleService : ISaleService
 
 		return await _mediator.Send(command);
 	}
-
-	private async Task AddPayLaterPaymentToDatabaseAsync(Payment payment, int paymentId, int invoiceId)
-	{
-		var command = new CreatePayLaterPaymentCommand
-		{
-			InvoiceId = invoiceId,
-			PaymentId = paymentId,
-			Description = payment.Note,
-			ReceivableAmount = payment.Amount
-		};
-
-		await _mediator.Send(command);
-	}
 	
-	private async Task PublishSalesCompletedEventAsync(int invoiceId, bool hasPayLaterPayment)
+	private async Task PublishSalesCompletedEventAsync(int invoiceId)
 	{
-		await _mediator.Publish(new SalesCompletedEvent(invoiceId, hasPayLaterPayment));
+		await _mediator.Publish(new SalesCompletedEvent(invoiceId));
 	}
 
 	private class InvoiceInfo : IInvoiceInfo
@@ -527,6 +507,5 @@ public class SaleService : ISaleService
 		public decimal InvoiceTotal { get; init; }
 		public decimal PaymentTotal { get; init; }
 		public decimal Changes { get; init; }
-		public bool HasPayLaterPayment { get; init; }
 	}
 }

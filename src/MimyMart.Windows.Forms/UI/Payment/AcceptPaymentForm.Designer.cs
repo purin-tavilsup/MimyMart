@@ -34,14 +34,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             label1 = new Label();
             panel20 = new Panel();
             PayByMoneyTransferButton = new Button();
-            panel21 = new Panel();
-            PayBy5050Button = new Button();
-            panel22 = new Panel();
-            PayByWelfareCardButton = new Button();
-            panel24 = new Panel();
-            PayByWeLoveButton = new Button();
-            panel25 = new Panel();
-            PayByWeWinButton = new Button();
             panel26 = new Panel();
             PayByCashButton = new Button();
             panel27 = new Panel();
@@ -49,7 +41,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             PaymentAmountLabel = new Label();
             label3 = new Label();
             PaymentTypePanel = new Panel();
-            PayByPayLaterButton = new ModernUI.ModernButton();
             PaymentTypeLabel = new Label();
             label4 = new Label();
             KeypadPanel = new Panel();
@@ -74,7 +65,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             ClearButton = new Button();
             panel30 = new Panel();
             panel1 = new Panel();
-            AcceptPayLaterPaymentButton = new ModernUI.ModernButton();
             panel2 = new Panel();
             BalanceRemainingLabel = new Label();
             label6 = new Label();
@@ -85,10 +75,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             CancelAcceptPaymentButton = new ModernUI.ModernButton();
             AcceptPaymentButton = new ModernUI.ModernButton();
             panel20.SuspendLayout();
-            panel21.SuspendLayout();
-            panel22.SuspendLayout();
-            panel24.SuspendLayout();
-            panel25.SuspendLayout();
             panel26.SuspendLayout();
             panel27.SuspendLayout();
             PaymentTypePanel.SuspendLayout();
@@ -103,7 +89,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             label1.BackColor = Color.DarkSlateGray;
             label1.Dock = DockStyle.Top;
-            label1.Font = new Font("FC Subject [Non-commercial] Reg", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Font = new Font("FC Subject [Non-commercial] Reg", 18F);
             label1.ForeColor = Color.WhiteSmoke;
             label1.Location = new Point(0, 0);
             label1.Name = "label1";
@@ -126,7 +112,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             PayByMoneyTransferButton.BackColor = Color.FromArgb(80, 80, 80);
             PayByMoneyTransferButton.FlatStyle = FlatStyle.Flat;
-            PayByMoneyTransferButton.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PayByMoneyTransferButton.Font = new Font("Leelawadee UI", 15.75F);
             PayByMoneyTransferButton.Image = Resources.Payment_MoneyTransfer_100;
             PayByMoneyTransferButton.Location = new Point(3, 3);
             PayByMoneyTransferButton.Name = "PayByMoneyTransferButton";
@@ -136,106 +122,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             PayByMoneyTransferButton.TextImageRelation = TextImageRelation.ImageBeforeText;
             PayByMoneyTransferButton.UseVisualStyleBackColor = false;
             PayByMoneyTransferButton.Click += PayByMoneyTransferButton_Click;
-            // 
-            // panel21
-            // 
-            panel21.BackColor = Color.Silver;
-            panel21.BorderStyle = BorderStyle.FixedSingle;
-            panel21.Controls.Add(PayBy5050Button);
-            panel21.Location = new Point(10, 151);
-            panel21.Name = "panel21";
-            panel21.Size = new Size(195, 129);
-            panel21.TabIndex = 41;
-            // 
-            // PayBy5050Button
-            // 
-            PayBy5050Button.BackColor = Color.FromArgb(80, 80, 80);
-            PayBy5050Button.FlatStyle = FlatStyle.Flat;
-            PayBy5050Button.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PayBy5050Button.Image = Resources.Payment_KLK_100;
-            PayBy5050Button.Location = new Point(3, 3);
-            PayBy5050Button.Name = "PayBy5050Button";
-            PayBy5050Button.Size = new Size(187, 121);
-            PayBy5050Button.TabIndex = 7;
-            PayBy5050Button.TextAlign = ContentAlignment.MiddleRight;
-            PayBy5050Button.TextImageRelation = TextImageRelation.ImageBeforeText;
-            PayBy5050Button.UseVisualStyleBackColor = false;
-            PayBy5050Button.Click += PayBy5050Button_Click;
-            // 
-            // panel22
-            // 
-            panel22.BackColor = Color.Silver;
-            panel22.BorderStyle = BorderStyle.FixedSingle;
-            panel22.Controls.Add(PayByWelfareCardButton);
-            panel22.Location = new Point(10, 286);
-            panel22.Name = "panel22";
-            panel22.Size = new Size(195, 129);
-            panel22.TabIndex = 42;
-            // 
-            // PayByWelfareCardButton
-            // 
-            PayByWelfareCardButton.BackColor = Color.FromArgb(80, 80, 80);
-            PayByWelfareCardButton.FlatStyle = FlatStyle.Flat;
-            PayByWelfareCardButton.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PayByWelfareCardButton.Image = Resources.Payment_PracharatCard_100;
-            PayByWelfareCardButton.Location = new Point(3, 3);
-            PayByWelfareCardButton.Name = "PayByWelfareCardButton";
-            PayByWelfareCardButton.Size = new Size(187, 121);
-            PayByWelfareCardButton.TabIndex = 7;
-            PayByWelfareCardButton.TextAlign = ContentAlignment.MiddleRight;
-            PayByWelfareCardButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            PayByWelfareCardButton.UseVisualStyleBackColor = false;
-            PayByWelfareCardButton.Click += PayByWelfareCardButton_Click;
-            // 
-            // panel24
-            // 
-            panel24.BackColor = Color.Silver;
-            panel24.BorderStyle = BorderStyle.FixedSingle;
-            panel24.Controls.Add(PayByWeLoveButton);
-            panel24.Location = new Point(211, 286);
-            panel24.Name = "panel24";
-            panel24.Size = new Size(195, 129);
-            panel24.TabIndex = 44;
-            // 
-            // PayByWeLoveButton
-            // 
-            PayByWeLoveButton.BackColor = Color.FromArgb(80, 80, 80);
-            PayByWeLoveButton.FlatStyle = FlatStyle.Flat;
-            PayByWeLoveButton.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PayByWeLoveButton.Image = Resources.Payment_WeLove_100;
-            PayByWeLoveButton.Location = new Point(3, 3);
-            PayByWeLoveButton.Name = "PayByWeLoveButton";
-            PayByWeLoveButton.Size = new Size(187, 121);
-            PayByWeLoveButton.TabIndex = 7;
-            PayByWeLoveButton.TextAlign = ContentAlignment.MiddleRight;
-            PayByWeLoveButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            PayByWeLoveButton.UseVisualStyleBackColor = false;
-            PayByWeLoveButton.Click += PayByWeLoveButton_Click;
-            // 
-            // panel25
-            // 
-            panel25.BackColor = Color.Silver;
-            panel25.BorderStyle = BorderStyle.FixedSingle;
-            panel25.Controls.Add(PayByWeWinButton);
-            panel25.Location = new Point(211, 151);
-            panel25.Name = "panel25";
-            panel25.Size = new Size(195, 129);
-            panel25.TabIndex = 45;
-            // 
-            // PayByWeWinButton
-            // 
-            PayByWeWinButton.BackColor = Color.FromArgb(80, 80, 80);
-            PayByWeWinButton.FlatStyle = FlatStyle.Flat;
-            PayByWeWinButton.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
-            PayByWeWinButton.Image = Resources.Payment_WeWin_100;
-            PayByWeWinButton.Location = new Point(3, 3);
-            PayByWeWinButton.Name = "PayByWeWinButton";
-            PayByWeWinButton.Size = new Size(187, 121);
-            PayByWeWinButton.TabIndex = 7;
-            PayByWeWinButton.TextAlign = ContentAlignment.MiddleRight;
-            PayByWeWinButton.TextImageRelation = TextImageRelation.ImageBeforeText;
-            PayByWeWinButton.UseVisualStyleBackColor = false;
-            PayByWeWinButton.Click += PayByWeWinButton_Click;
             // 
             // panel26
             // 
@@ -251,7 +137,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             PayByCashButton.BackColor = Color.FromArgb(80, 80, 80);
             PayByCashButton.FlatStyle = FlatStyle.Flat;
-            PayByCashButton.Font = new Font("Leelawadee UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PayByCashButton.Font = new Font("Leelawadee UI", 15.75F);
             PayByCashButton.Image = Resources.Money_80;
             PayByCashButton.Location = new Point(3, 3);
             PayByCashButton.Name = "PayByCashButton";
@@ -277,7 +163,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // label2
             // 
             label2.BackColor = Color.FromArgb(30, 30, 30);
-            label2.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             label2.ForeColor = Color.Gainsboro;
             label2.Location = new Point(3, 3);
             label2.Name = "label2";
@@ -289,7 +175,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // PaymentAmountLabel
             // 
             PaymentAmountLabel.BackColor = Color.FromArgb(30, 30, 30);
-            PaymentAmountLabel.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PaymentAmountLabel.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             PaymentAmountLabel.ForeColor = Color.PaleGreen;
             PaymentAmountLabel.Location = new Point(135, 3);
             PaymentAmountLabel.Name = "PaymentAmountLabel";
@@ -301,7 +187,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // label3
             // 
             label3.BackColor = Color.FromArgb(30, 30, 30);
-            label3.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             label3.ForeColor = Color.Gainsboro;
             label3.Location = new Point(433, 3);
             label3.Name = "label3";
@@ -314,46 +200,18 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             PaymentTypePanel.BackColor = Color.FromArgb(30, 30, 30);
             PaymentTypePanel.BorderStyle = BorderStyle.FixedSingle;
-            PaymentTypePanel.Controls.Add(PayByPayLaterButton);
             PaymentTypePanel.Controls.Add(panel20);
-            PaymentTypePanel.Controls.Add(panel21);
             PaymentTypePanel.Controls.Add(panel26);
-            PaymentTypePanel.Controls.Add(panel24);
-            PaymentTypePanel.Controls.Add(panel22);
-            PaymentTypePanel.Controls.Add(panel25);
             PaymentTypePanel.ForeColor = Color.Black;
             PaymentTypePanel.Location = new Point(116, 178);
             PaymentTypePanel.Name = "PaymentTypePanel";
             PaymentTypePanel.Size = new Size(419, 556);
             PaymentTypePanel.TabIndex = 48;
             // 
-            // PayByPayLaterButton
-            // 
-            PayByPayLaterButton.BackColor = Color.FromArgb(38, 38, 38);
-            PayByPayLaterButton.BackgroundColor = Color.FromArgb(38, 38, 38);
-            PayByPayLaterButton.BorderColor = Color.PeachPuff;
-            PayByPayLaterButton.BorderRadius = 5;
-            PayByPayLaterButton.BorderSize = 1;
-            PayByPayLaterButton.FlatAppearance.BorderSize = 0;
-            PayByPayLaterButton.FlatStyle = FlatStyle.Flat;
-            PayByPayLaterButton.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            PayByPayLaterButton.ForeColor = Color.White;
-            PayByPayLaterButton.Image = Resources.Customer_Acounts_50;
-            PayByPayLaterButton.Location = new Point(10, 421);
-            PayByPayLaterButton.Name = "PayByPayLaterButton";
-            PayByPayLaterButton.Size = new Size(195, 118);
-            PayByPayLaterButton.TabIndex = 52;
-            PayByPayLaterButton.Text = "ลงบัญชี";
-            PayByPayLaterButton.TextAlign = ContentAlignment.BottomCenter;
-            PayByPayLaterButton.TextColor = Color.White;
-            PayByPayLaterButton.TextImageRelation = TextImageRelation.ImageAboveText;
-            PayByPayLaterButton.UseVisualStyleBackColor = false;
-            PayByPayLaterButton.Click += PayByPayLaterButton_Click;
-            // 
             // PaymentTypeLabel
             // 
             PaymentTypeLabel.BackColor = Color.FromArgb(30, 30, 30);
-            PaymentTypeLabel.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            PaymentTypeLabel.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             PaymentTypeLabel.ForeColor = Color.PaleGreen;
             PaymentTypeLabel.Location = new Point(255, 3);
             PaymentTypeLabel.Name = "PaymentTypeLabel";
@@ -365,7 +223,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // label4
             // 
             label4.BackColor = Color.FromArgb(30, 30, 30);
-            label4.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             label4.ForeColor = Color.Gainsboro;
             label4.Location = new Point(4, 2);
             label4.Name = "label4";
@@ -406,7 +264,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Add500Button.BackColor = Color.FromArgb(38, 38, 38);
             Add500Button.FlatStyle = FlatStyle.Flat;
-            Add500Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Add500Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Add500Button.ForeColor = Color.LightSkyBlue;
             Add500Button.Location = new Point(386, 257);
             Add500Button.Name = "Add500Button";
@@ -421,7 +279,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit9Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit9Button.FlatStyle = FlatStyle.Flat;
-            Digit9Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit9Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit9Button.ForeColor = Color.Gainsboro;
             Digit9Button.Location = new Point(265, 29);
             Digit9Button.Name = "Digit9Button";
@@ -436,7 +294,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Add100Button.BackColor = Color.FromArgb(38, 38, 38);
             Add100Button.FlatStyle = FlatStyle.Flat;
-            Add100Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Add100Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Add100Button.ForeColor = Color.LightSkyBlue;
             Add100Button.Location = new Point(386, 181);
             Add100Button.Name = "Add100Button";
@@ -451,7 +309,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit6Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit6Button.FlatStyle = FlatStyle.Flat;
-            Digit6Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit6Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit6Button.ForeColor = Color.Gainsboro;
             Digit6Button.Location = new Point(265, 105);
             Digit6Button.Name = "Digit6Button";
@@ -466,7 +324,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Add50Button.BackColor = Color.FromArgb(38, 38, 38);
             Add50Button.FlatStyle = FlatStyle.Flat;
-            Add50Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Add50Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Add50Button.ForeColor = Color.LightSkyBlue;
             Add50Button.Location = new Point(386, 105);
             Add50Button.Name = "Add50Button";
@@ -481,7 +339,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit8Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit8Button.FlatStyle = FlatStyle.Flat;
-            Digit8Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit8Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit8Button.ForeColor = Color.Gainsboro;
             Digit8Button.Location = new Point(144, 29);
             Digit8Button.Name = "Digit8Button";
@@ -496,7 +354,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Add20Button.BackColor = Color.FromArgb(38, 38, 38);
             Add20Button.FlatStyle = FlatStyle.Flat;
-            Add20Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Add20Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Add20Button.ForeColor = Color.LightSkyBlue;
             Add20Button.Location = new Point(386, 29);
             Add20Button.Name = "Add20Button";
@@ -511,7 +369,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit3Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit3Button.FlatStyle = FlatStyle.Flat;
-            Digit3Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit3Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit3Button.ForeColor = Color.Gainsboro;
             Digit3Button.Location = new Point(265, 181);
             Digit3Button.Name = "Digit3Button";
@@ -526,7 +384,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit7Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit7Button.FlatStyle = FlatStyle.Flat;
-            Digit7Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit7Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit7Button.ForeColor = Color.Gainsboro;
             Digit7Button.Location = new Point(23, 29);
             Digit7Button.Name = "Digit7Button";
@@ -541,7 +399,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit5Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit5Button.FlatStyle = FlatStyle.Flat;
-            Digit5Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit5Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit5Button.ForeColor = Color.Gainsboro;
             Digit5Button.Location = new Point(144, 105);
             Digit5Button.Name = "Digit5Button";
@@ -556,7 +414,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             PlusButton.BackColor = Color.FromArgb(38, 38, 38);
             PlusButton.FlatStyle = FlatStyle.Flat;
-            PlusButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            PlusButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             PlusButton.ForeColor = Color.Gainsboro;
             PlusButton.Location = new Point(265, 257);
             PlusButton.Name = "PlusButton";
@@ -571,7 +429,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit4Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit4Button.FlatStyle = FlatStyle.Flat;
-            Digit4Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit4Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit4Button.ForeColor = Color.Gainsboro;
             Digit4Button.Location = new Point(23, 105);
             Digit4Button.Name = "Digit4Button";
@@ -586,7 +444,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit2Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit2Button.FlatStyle = FlatStyle.Flat;
-            Digit2Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit2Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit2Button.ForeColor = Color.Gainsboro;
             Digit2Button.Location = new Point(144, 181);
             Digit2Button.Name = "Digit2Button";
@@ -601,7 +459,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Add1000Button.BackColor = Color.FromArgb(38, 38, 38);
             Add1000Button.FlatStyle = FlatStyle.Flat;
-            Add1000Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Add1000Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Add1000Button.ForeColor = Color.LightSkyBlue;
             Add1000Button.Location = new Point(386, 333);
             Add1000Button.Name = "Add1000Button";
@@ -616,7 +474,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit1Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit1Button.FlatStyle = FlatStyle.Flat;
-            Digit1Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit1Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit1Button.ForeColor = Color.Gainsboro;
             Digit1Button.Location = new Point(23, 181);
             Digit1Button.Name = "Digit1Button";
@@ -631,7 +489,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             Digit0Button.BackColor = Color.FromArgb(38, 38, 38);
             Digit0Button.FlatStyle = FlatStyle.Flat;
-            Digit0Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Digit0Button.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             Digit0Button.ForeColor = Color.Gainsboro;
             Digit0Button.Location = new Point(144, 257);
             Digit0Button.Name = "Digit0Button";
@@ -646,7 +504,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             EqualButton.BackColor = Color.FromArgb(38, 38, 38);
             EqualButton.FlatStyle = FlatStyle.Flat;
-            EqualButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            EqualButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             EqualButton.ForeColor = Color.Gainsboro;
             EqualButton.Location = new Point(144, 333);
             EqualButton.Name = "EqualButton";
@@ -661,7 +519,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             DecimalPointButton.BackColor = Color.FromArgb(38, 38, 38);
             DecimalPointButton.FlatStyle = FlatStyle.Flat;
-            DecimalPointButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            DecimalPointButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             DecimalPointButton.ForeColor = Color.Gainsboro;
             DecimalPointButton.Location = new Point(23, 257);
             DecimalPointButton.Name = "DecimalPointButton";
@@ -676,7 +534,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             ClearButton.BackColor = Color.FromArgb(38, 38, 38);
             ClearButton.FlatStyle = FlatStyle.Flat;
-            ClearButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F, FontStyle.Regular, GraphicsUnit.Point);
+            ClearButton.Font = new Font("FC Subject [Non-commercial] Reg", 20.25F);
             ClearButton.ForeColor = Color.Gainsboro;
             ClearButton.Location = new Point(23, 333);
             ClearButton.Name = "ClearButton";
@@ -702,7 +560,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // 
             panel1.BackColor = Color.FromArgb(30, 30, 30);
             panel1.BorderStyle = BorderStyle.FixedSingle;
-            panel1.Controls.Add(AcceptPayLaterPaymentButton);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(NotePanel);
             panel1.Controls.Add(RefundButton);
@@ -719,26 +576,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             panel1.Size = new Size(1427, 812);
             panel1.TabIndex = 51;
             // 
-            // AcceptPayLaterPaymentButton
-            // 
-            AcceptPayLaterPaymentButton.BackColor = Color.FromArgb(38, 38, 38);
-            AcceptPayLaterPaymentButton.BackgroundColor = Color.FromArgb(38, 38, 38);
-            AcceptPayLaterPaymentButton.BorderColor = Color.CornflowerBlue;
-            AcceptPayLaterPaymentButton.BorderRadius = 19;
-            AcceptPayLaterPaymentButton.BorderSize = 1;
-            AcceptPayLaterPaymentButton.FlatAppearance.BorderSize = 0;
-            AcceptPayLaterPaymentButton.FlatStyle = FlatStyle.Flat;
-            AcceptPayLaterPaymentButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            AcceptPayLaterPaymentButton.ForeColor = Color.White;
-            AcceptPayLaterPaymentButton.Location = new Point(1110, 190);
-            AcceptPayLaterPaymentButton.Name = "AcceptPayLaterPaymentButton";
-            AcceptPayLaterPaymentButton.Size = new Size(220, 70);
-            AcceptPayLaterPaymentButton.TabIndex = 56;
-            AcceptPayLaterPaymentButton.Text = "ลงบัญชี";
-            AcceptPayLaterPaymentButton.TextColor = Color.White;
-            AcceptPayLaterPaymentButton.UseVisualStyleBackColor = false;
-            AcceptPayLaterPaymentButton.Click += AcceptPayLaterPaymentButton_Click;
-            // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(30, 30, 30);
@@ -753,7 +590,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // BalanceRemainingLabel
             // 
             BalanceRemainingLabel.BackColor = Color.FromArgb(30, 30, 30);
-            BalanceRemainingLabel.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            BalanceRemainingLabel.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             BalanceRemainingLabel.ForeColor = Color.PaleGreen;
             BalanceRemainingLabel.Location = new Point(249, 3);
             BalanceRemainingLabel.Name = "BalanceRemainingLabel";
@@ -765,7 +602,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // label6
             // 
             label6.BackColor = Color.FromArgb(30, 30, 30);
-            label6.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             label6.ForeColor = Color.Gainsboro;
             label6.Location = new Point(4, 2);
             label6.Name = "label6";
@@ -789,7 +626,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             NoteTextBox.BackColor = Color.FromArgb(30, 30, 30);
             NoteTextBox.BorderColor = Color.DimGray;
             NoteTextBox.BorderSize = 1;
-            NoteTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            NoteTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             NoteTextBox.ForeColor = Color.Gainsboro;
             NoteTextBox.Location = new Point(111, 36);
             NoteTextBox.Multiline = false;
@@ -806,7 +643,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             // label10
             // 
             label10.BackColor = Color.FromArgb(30, 30, 30);
-            label10.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point);
+            label10.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F);
             label10.ForeColor = Color.Gainsboro;
             label10.Location = new Point(19, 36);
             label10.Name = "label10";
@@ -824,7 +661,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             RefundButton.BorderSize = 1;
             RefundButton.FlatAppearance.BorderSize = 0;
             RefundButton.FlatStyle = FlatStyle.Flat;
-            RefundButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            RefundButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F);
             RefundButton.ForeColor = Color.White;
             RefundButton.Location = new Point(1110, 266);
             RefundButton.Name = "RefundButton";
@@ -844,7 +681,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             CancelAcceptPaymentButton.BorderSize = 1;
             CancelAcceptPaymentButton.FlatAppearance.BorderSize = 0;
             CancelAcceptPaymentButton.FlatStyle = FlatStyle.Flat;
-            CancelAcceptPaymentButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            CancelAcceptPaymentButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F);
             CancelAcceptPaymentButton.ForeColor = Color.White;
             CancelAcceptPaymentButton.Location = new Point(1110, 516);
             CancelAcceptPaymentButton.Name = "CancelAcceptPaymentButton";
@@ -864,7 +701,7 @@ namespace MimyMart.Windows.Forms.UI.Payment
             AcceptPaymentButton.BorderSize = 1;
             AcceptPaymentButton.FlatAppearance.BorderSize = 0;
             AcceptPaymentButton.FlatStyle = FlatStyle.Flat;
-            AcceptPaymentButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            AcceptPaymentButton.Font = new Font("FC Subject [Non-commercial] Reg", 14.25F);
             AcceptPaymentButton.ForeColor = Color.White;
             AcceptPaymentButton.Location = new Point(1110, 114);
             AcceptPaymentButton.Name = "AcceptPaymentButton";
@@ -889,10 +726,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
             StartPosition = FormStartPosition.CenterScreen;
             WindowState = FormWindowState.Maximized;
             panel20.ResumeLayout(false);
-            panel21.ResumeLayout(false);
-            panel22.ResumeLayout(false);
-            panel24.ResumeLayout(false);
-            panel25.ResumeLayout(false);
             panel26.ResumeLayout(false);
             panel27.ResumeLayout(false);
             PaymentTypePanel.ResumeLayout(false);
@@ -909,14 +742,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
         private System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel20;
 		private System.Windows.Forms.Button PayByMoneyTransferButton;
-		private System.Windows.Forms.Panel panel21;
-		private System.Windows.Forms.Button PayBy5050Button;
-		private System.Windows.Forms.Panel panel22;
-		private System.Windows.Forms.Button PayByWelfareCardButton;
-		private System.Windows.Forms.Panel panel24;
-		private System.Windows.Forms.Button PayByWeLoveButton;
-		private System.Windows.Forms.Panel panel25;
-		private System.Windows.Forms.Button PayByWeWinButton;
 		private System.Windows.Forms.Panel panel26;
 		private System.Windows.Forms.Button PayByCashButton;
 		private System.Windows.Forms.Panel panel27;
@@ -950,7 +775,6 @@ namespace MimyMart.Windows.Forms.UI.Payment
 		private System.Windows.Forms.Panel panel1;
         private ModernUI.ModernButton AcceptPaymentButton;
         private ModernUI.ModernButton CancelAcceptPaymentButton;
-        private ModernUI.ModernButton PayByPayLaterButton;
         private ModernUI.ModernButton RefundButton;
         private System.Windows.Forms.Panel NotePanel;
         private ModernUI.ModernTextBox NoteTextBox;
@@ -958,6 +782,5 @@ namespace MimyMart.Windows.Forms.UI.Payment
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label BalanceRemainingLabel;
         private System.Windows.Forms.Label label6;
-        private ModernUI.ModernButton AcceptPayLaterPaymentButton;
     }
 }

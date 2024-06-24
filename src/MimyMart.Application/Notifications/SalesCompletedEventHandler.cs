@@ -27,9 +27,8 @@ public class SalesCompletedEventHandler : INotificationHandler<SalesCompletedEve
 		}
 
 		var invoiceId = notification.InvoiceId;
-		var hasPayLaterPayment = notification.HasPayLaterPayment;
 		
-		await _mediator.Send(new CreateSalesReportCommand(invoiceId, hasPayLaterPayment), cancellationToken);
+		await _mediator.Send(new CreateSalesReportCommand(invoiceId), cancellationToken);
 		await _mediator.Send(new CreatePaymentsReportCommand(invoiceId), cancellationToken);
 	}
 

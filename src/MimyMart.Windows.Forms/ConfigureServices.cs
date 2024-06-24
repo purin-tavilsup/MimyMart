@@ -1,11 +1,9 @@
 ﻿using MimyMart.Windows.Forms;
 using System.Runtime.Versioning;
-using MimyMart.Windows.Forms;
 using MimyMart.Windows.Forms.Interfaces;
 using MimyMart.Windows.Forms.UI;
 using MimyMart.Windows.Forms.UI.Inventory;
 using MimyMart.Windows.Forms.UI.Login;
-using MimyMart.Windows.Forms.UI.PayLater;
 using MimyMart.Windows.Forms.UI.Payment;
 using MimyMart.Windows.Forms.UI.Report;
 using MimyMart.Windows.Forms.UI.Sale;
@@ -24,7 +22,6 @@ internal static class ConfigureServices
 				.AddSingleton<SalesHistoryReportPanel>()
 				.AddSingleton<SalesReportPanel>()
 				.AddSingleton<AcceptPaymentForm>()
-				.AddSingleton<PayLaterPaymentPanel>()
 				.AddSingleton<AddInvoiceProductForm>()
 				.AddSingleton<AddNewInventoryProductForm>()
 				.AddSingleton<AddNewInventoryProductWithCustomBarcodeForm>()
@@ -34,7 +31,6 @@ internal static class ConfigureServices
 				.AddSingleton<MessageForm>()
 				.AddSingleton<PrintReceiptForm>()
 				.AddSingleton<ReportsPanel>()
-				.AddSingleton<PayLaterPaymentsReportPanel>()
 				.AddSingleton<SaleHistoryByInvoiceIdForm>()
 				.AddSingleton<SalePanel>()
 				.AddSingleton<SettingsPanel>()
