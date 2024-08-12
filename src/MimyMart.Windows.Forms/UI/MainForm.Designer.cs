@@ -151,7 +151,7 @@
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = Properties.Resources.Rungrat_Store_Logo;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
             pictureBox2.Location = new Point(12, 2);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(50, 50);

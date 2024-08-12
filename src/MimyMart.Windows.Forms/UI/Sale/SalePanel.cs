@@ -25,8 +25,7 @@ public partial class SalePanel : UserControl
 	private readonly MessageForm _messageForm;
 	private readonly PrintReceiptForm _printReceiptForm;
 
-	private const string GeneralGoodsBarcode = "2001000000012";
-	private const string HardwareBarcode = "2005000000027";
+	private const string ProductWithoutBarcode = "2001000000012";
 
 	private enum SaleInvoiceColumn
 	{
@@ -351,14 +350,9 @@ public partial class SalePanel : UserControl
 		_saleService.RemoveAllPayments();
 	}
 
-	private async void AddGeneralGoodsProductButton_Click(object sender, EventArgs e)
+	private async void AddProductWithoutBarcodeButton_Click(object sender, EventArgs e)
 	{
-		await _addInvoiceProductForm.ShowDialog(GeneralGoodsBarcode);
-	}
-
-	private async void AddHardwareProductButton_Click(object sender, EventArgs e)
-	{
-		await _addInvoiceProductForm.ShowDialog(HardwareBarcode);
+		await _addInvoiceProductForm.ShowDialog(ProductWithoutBarcode);
 	}
 
 	private void LookUpProductButton_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@ public class ReportRepository : IReportRepository
 		
 			const string sqlCommand = 
 				"""
-				INSERT INTO rungrat_report.sales_report
+				INSERT INTO mimy_mart_report.sales_report
 					(id,
 					 created,
 					 reference_id,
@@ -68,7 +68,7 @@ public class ReportRepository : IReportRepository
 		
 			const string sqlCommand = 
 				"""
-				INSERT INTO rungrat_report.payments_report
+				INSERT INTO mimy_mart_report.payments_report
 					(id,
 					 created,
 					 reference_id,

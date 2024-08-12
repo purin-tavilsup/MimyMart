@@ -11,7 +11,7 @@ public class ReportDbConnectionProvider : IReportDbConnectionProvider
 	
 	public ReportDbConnectionProvider(IConfiguration configuration)
 	{
-		_connectionString = configuration.GetConnectionString("RungratPosDb") ?? string.Empty;
+		_connectionString = configuration.GetConnectionString("MimyMartPosDb") ?? string.Empty;
 	}
 
 	public IDbConnection CreateConnection()
