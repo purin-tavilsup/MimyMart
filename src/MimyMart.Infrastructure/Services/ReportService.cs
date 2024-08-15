@@ -113,6 +113,7 @@ public class ReportService : IReportService
 	private static PaymentsSummary CreatePaymentsSummary(IEnumerable<InvoicePaymentDto> payments)
 	{
 		var moneyTransferTotal = 0m;
+		var cashTotal = 0m;
 		
 		foreach (var payment in payments)
 		{
@@ -120,6 +121,10 @@ public class ReportService : IReportService
 
 			switch (payment.PaymentTypeId)
 			{
+				case (int) PaymentType.Cash:
+					cashTotal += amount;
+					break;
+				
 				case (int) PaymentType.MoneyTransfer:
 					moneyTransferTotal += amount;
 					break;
@@ -128,6 +133,7 @@ public class ReportService : IReportService
 
 		return new PaymentsSummary
 		{
+			CashTotal = cashTotal,
 			MoneyTransferTotal = moneyTransferTotal
 		};
 	}

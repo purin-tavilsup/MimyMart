@@ -16,7 +16,8 @@ public class CreatePaymentsReportCommandHandler : ICommandHandler<CreatePayments
 
 	public CreatePaymentsReportCommandHandler(IReportService reportService, 
 											  IReportRepository repository, 
-											  ILogger<CreatePaymentsReportCommandHandler> logger, IJsonService jsonService)
+											  ILogger<CreatePaymentsReportCommandHandler> logger, 
+											  IJsonService jsonService)
 	{
 		_reportService = reportService;
 		_repository = repository;

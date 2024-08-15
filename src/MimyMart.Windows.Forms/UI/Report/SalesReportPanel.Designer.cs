@@ -48,10 +48,15 @@
             StartDatePicker = new DateTimePicker();
             EndDatePicker = new DateTimePicker();
             label7 = new Label();
+            panel3 = new Panel();
+            PaymentByCashLabel = new Label();
+            label2 = new Label();
+            label3 = new Label();
             panel6.SuspendLayout();
             panel1.SuspendLayout();
             panel14.SuspendLayout();
             panel2.SuspendLayout();
+            panel3.SuspendLayout();
             SuspendLayout();
             // 
             // panel6
@@ -194,7 +199,7 @@
             panel14.Controls.Add(PaymentByTransferLabel);
             panel14.Controls.Add(label29);
             panel14.Controls.Add(label4);
-            panel14.Location = new Point(309, 105);
+            panel14.Location = new Point(615, 105);
             panel14.Name = "panel14";
             panel14.Size = new Size(300, 190);
             panel14.TabIndex = 113;
@@ -326,11 +331,61 @@
             label7.Text = " เลือกช่วงเวลาแบบกำหนดเอง";
             label7.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel3
+            // 
+            panel3.BackColor = Color.FromArgb(38, 38, 38);
+            panel3.Controls.Add(PaymentByCashLabel);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label3);
+            panel3.Location = new Point(309, 105);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(300, 190);
+            panel3.TabIndex = 123;
+            // 
+            // PaymentByCashLabel
+            // 
+            PaymentByCashLabel.BackColor = Color.FromArgb(38, 38, 38);
+            PaymentByCashLabel.Dock = DockStyle.Fill;
+            PaymentByCashLabel.Font = new Font("FC Subject [Non-commercial] Reg", 24F);
+            PaymentByCashLabel.ForeColor = Color.Turquoise;
+            PaymentByCashLabel.Location = new Point(0, 39);
+            PaymentByCashLabel.Name = "PaymentByCashLabel";
+            PaymentByCashLabel.Size = new Size(300, 115);
+            PaymentByCashLabel.TabIndex = 87;
+            PaymentByCashLabel.Text = "0.00";
+            PaymentByCashLabel.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            label2.BackColor = Color.FromArgb(38, 38, 38);
+            label2.Dock = DockStyle.Bottom;
+            label2.Font = new Font("FC Subject [Non-commercial] Reg", 9F);
+            label2.ForeColor = Color.Gainsboro;
+            label2.Location = new Point(0, 154);
+            label2.Name = "label2";
+            label2.Size = new Size(300, 36);
+            label2.TabIndex = 89;
+            label2.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // label3
+            // 
+            label3.BackColor = Color.FromArgb(38, 38, 38);
+            label3.Dock = DockStyle.Top;
+            label3.Font = new Font("FC Subject [Non-commercial] Reg", 12F);
+            label3.ForeColor = Color.Gainsboro;
+            label3.Location = new Point(0, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(300, 39);
+            label3.TabIndex = 83;
+            label3.Text = " ยอดเงินสด";
+            label3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // SalesReportPanel
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(30, 30, 30);
+            Controls.Add(panel3);
             Controls.Add(panel2);
             Controls.Add(panel14);
             Controls.Add(panel6);
@@ -341,6 +396,7 @@
             panel1.ResumeLayout(false);
             panel14.ResumeLayout(false);
             panel2.ResumeLayout(false);
+            panel3.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -366,5 +422,9 @@
         private Label label9;
         private DateTimePicker StartDatePicker;
         private DateTimePicker EndDatePicker;
+        private Panel panel3;
+        private Label PaymentByCashLabel;
+        private Label label2;
+        private Label label3;
     }
 }

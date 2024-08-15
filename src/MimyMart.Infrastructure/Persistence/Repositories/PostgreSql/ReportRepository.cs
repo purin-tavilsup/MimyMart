@@ -72,11 +72,13 @@ public class ReportRepository : IReportRepository
 					(id,
 					 created,
 					 reference_id,
+					 cash_total,
 					 money_transfer_total)
 				VALUES
 					(@id,
 					 @created,
 					 @referenceId,
+					 @cashTotal,
 					 @moneyTransferTotal);
 				""";
 		
@@ -85,6 +87,7 @@ public class ReportRepository : IReportRepository
 				id = report.Id,
 				created = report.Created,
 				referenceId = report.ReferenceId,
+				cashTotal = report.CashTotal,
 				moneyTransferTotal = report.MoneyTransferTotal
 			};
 

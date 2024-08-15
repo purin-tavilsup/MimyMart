@@ -19,10 +19,14 @@ public partial class SalesReportPanel : UserControl
     }
 
     private void ShowSummary(SalesSummary salesSummary, PaymentsSummary paymentsSummary)
-    {
-        OverallSaleLabel.Text = $"{salesSummary.InvoiceTotal:N2}";
+	{
+		var invoiceTotal = salesSummary.InvoiceTotal;
+		var moneyTransferTotal = paymentsSummary.MoneyTransferTotal;
+		var cashTotal = invoiceTotal - moneyTransferTotal;
 
-        PaymentByTransferLabel.Text = $"{paymentsSummary.MoneyTransferTotal:N2}";
+        OverallSaleLabel.Text = $"{invoiceTotal:N2}";
+		PaymentByCashLabel.Text = $"{cashTotal:N2}";
+        PaymentByTransferLabel.Text = $"{moneyTransferTotal:N2}";
     }
 
     private async Task<SalesSummary> GetSalesReportByPeriodAsync(TimePeriod period)

@@ -11,6 +11,7 @@ public static class PaymentsSummaryExtensions
 			Id = id,
 			Created = created,
 			ReferenceId = referenceId,
+			CashTotal = summary.CashTotal,
 			MoneyTransferTotal = summary.MoneyTransferTotal
 		};
 	}
