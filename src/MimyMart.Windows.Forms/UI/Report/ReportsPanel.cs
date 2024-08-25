@@ -9,17 +9,20 @@ public partial class ReportsPanel : UserControl
     private readonly SalesReportPanel _salesReportPanel;
     private readonly InvoiceProductsReportPanel _invoiceProductsReportPanel;
     private readonly SalesHistoryReportPanel _salesHistoryReportPanel;
+    private readonly CashFlowCalculatorPanel _cashFlowCalculatorPanel;
     private UserControl _activePanel;
 
     public ReportsPanel(SalesReportPanel salesReportPanel,
                         InvoiceProductsReportPanel invoiceProductsReportPanel,
-                        SalesHistoryReportPanel salesHistoryReportPanel)
+                        SalesHistoryReportPanel salesHistoryReportPanel,
+                        CashFlowCalculatorPanel cashFlowCalculatorPanel)
     {
         _salesReportPanel = salesReportPanel;
         _salesReportPanel.Visible = false;
         _invoiceProductsReportPanel = invoiceProductsReportPanel;
         _invoiceProductsReportPanel.Visible = false;
         _salesHistoryReportPanel = salesHistoryReportPanel;
+        _cashFlowCalculatorPanel = cashFlowCalculatorPanel;
         _salesHistoryReportPanel.Visible = false;
 
         _activePanel = new UserControl();
@@ -34,6 +37,7 @@ public partial class ReportsPanel : UserControl
             ReportSubPanel.SalesReport => _salesReportPanel,
             ReportSubPanel.InvoiceProductsReport => _invoiceProductsReportPanel,
             ReportSubPanel.SalesHistoryReport => _salesHistoryReportPanel,
+            ReportSubPanel.CashFlowCalculator => _cashFlowCalculatorPanel,
             _ => _salesReportPanel
         };
 
@@ -79,7 +83,8 @@ public partial class ReportsPanel : UserControl
         SwitchToPanel(ReportSubPanel.SalesHistoryReport);
     }
 
-    private void PayLaterPaymentsReportButton_Click(object sender, EventArgs e)
+	private void CashFlowCalculatorButton_Click(object sender, EventArgs e)
     {
+        SwitchToPanel(ReportSubPanel.CashFlowCalculator);
     }
 }
