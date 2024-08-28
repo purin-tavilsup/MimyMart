@@ -1,9 +1,11 @@
 ﻿using Microsoft.Extensions.Logging;
+using MimyMart.Application.Abstractions;
 using MimyMart.Application.Abstractions.Messaging;
 using MimyMart.Application.Abstractions.Reports.Repositories;
 using MimyMart.Application.Common.Interfaces;
 using MimyMart.Application.Common.Models;
 using MimyMart.Application.Constants;
+using MimyMart.Application.Enums;
 
 namespace MimyMart.Application.PaymentsReports.Create;
 
@@ -13,16 +15,19 @@ public class CreatePaymentsReportCommandHandler : ICommandHandler<CreatePayments
 	private readonly IReportRepository _repository;
 	private readonly ILogger<CreatePaymentsReportCommandHandler> _logger;
 	private readonly IJsonService _jsonService;
+	private readonly IInstalledOsLanguage _installedOsLanguage;
 
 	public CreatePaymentsReportCommandHandler(IReportService reportService, 
 											  IReportRepository repository, 
 											  ILogger<CreatePaymentsReportCommandHandler> logger, 
-											  IJsonService jsonService)
+											  IJsonService jsonService, 
+											  IInstalledOsLanguage installedOsLanguage)
 	{
 		_reportService = reportService;
 		_repository = repository;
 		_logger = logger;
 		_jsonService = jsonService;
+		_installedOsLanguage = installedOsLanguage;
 	}
 
 	public async Task Handle(CreatePaymentsReportCommand command, CancellationToken cancellationToken)
@@ -53,15 +58,26 @@ public class CreatePaymentsReportCommandHandler : ICommandHandler<CreatePayments
 			await BackupReportAsync(report);
 		}
 	}
+
+	private string GetSecondaryBackupDirectory()
+	{
+		const string directory = ReportConstants.SecondaryPaymentsReportBackupDirectory;
+
+		return _installedOsLanguage.Language == OsLanguage.Thai 
+				   ? directory.Replace("My Drive", "ไดรฟ์ของฉัน") 
+				   : directory;
+	}
 	
 	private async Task BackupReportAsync(PaymentsReport report)
 	{
+		var secondaryBackupDirectory = GetSecondaryBackupDirectory();
+		
 		try
 		{
 			var tasks = new List<Task>
 			{
 				BackupReportToFileAsync(report, ReportConstants.PrimaryPaymentsReportBackupDirectory),
-				BackupReportToFileAsync(report, ReportConstants.SecondaryPaymentsReportBackupDirectory)
+				BackupReportToFileAsync(report, secondaryBackupDirectory)
 			};
 
 			await Task.WhenAll(tasks);

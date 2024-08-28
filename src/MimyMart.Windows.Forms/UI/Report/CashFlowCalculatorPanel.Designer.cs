@@ -937,7 +937,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote20CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             BankNote20CountTextBox.BorderColor = Color.DimGray;
             BankNote20CountTextBox.BorderSize = 1;
-            BankNote20CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            BankNote20CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             BankNote20CountTextBox.ForeColor = Color.Gainsboro;
             BankNote20CountTextBox.Location = new Point(114, 262);
             BankNote20CountTextBox.Multiline = false;
@@ -947,7 +947,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote20CountTextBox.PlaceholderColor = Color.DarkGray;
             BankNote20CountTextBox.PlaceholderText = "";
             BankNote20CountTextBox.ReadOnly = false;
-            BankNote20CountTextBox.Size = new Size(140, 34);
+            BankNote20CountTextBox.Size = new Size(140, 37);
             BankNote20CountTextBox.TabIndex = 133;
             BankNote20CountTextBox.TextAlign = HorizontalAlignment.Center;
             BankNote20CountTextBox.Texts = "";
@@ -960,7 +960,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote50CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             BankNote50CountTextBox.BorderColor = Color.DimGray;
             BankNote50CountTextBox.BorderSize = 1;
-            BankNote50CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            BankNote50CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             BankNote50CountTextBox.ForeColor = Color.Gainsboro;
             BankNote50CountTextBox.Location = new Point(114, 219);
             BankNote50CountTextBox.Multiline = false;
@@ -970,7 +970,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote50CountTextBox.PlaceholderColor = Color.DarkGray;
             BankNote50CountTextBox.PlaceholderText = "";
             BankNote50CountTextBox.ReadOnly = false;
-            BankNote50CountTextBox.Size = new Size(140, 34);
+            BankNote50CountTextBox.Size = new Size(140, 37);
             BankNote50CountTextBox.TabIndex = 132;
             BankNote50CountTextBox.TextAlign = HorizontalAlignment.Center;
             BankNote50CountTextBox.Texts = "";
@@ -983,7 +983,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote100CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             BankNote100CountTextBox.BorderColor = Color.DimGray;
             BankNote100CountTextBox.BorderSize = 1;
-            BankNote100CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            BankNote100CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             BankNote100CountTextBox.ForeColor = Color.Gainsboro;
             BankNote100CountTextBox.Location = new Point(114, 176);
             BankNote100CountTextBox.Multiline = false;
@@ -993,7 +993,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote100CountTextBox.PlaceholderColor = Color.DarkGray;
             BankNote100CountTextBox.PlaceholderText = "";
             BankNote100CountTextBox.ReadOnly = false;
-            BankNote100CountTextBox.Size = new Size(140, 34);
+            BankNote100CountTextBox.Size = new Size(140, 37);
             BankNote100CountTextBox.TabIndex = 131;
             BankNote100CountTextBox.TextAlign = HorizontalAlignment.Center;
             BankNote100CountTextBox.Texts = "";
@@ -1006,7 +1006,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote500CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             BankNote500CountTextBox.BorderColor = Color.DimGray;
             BankNote500CountTextBox.BorderSize = 1;
-            BankNote500CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            BankNote500CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             BankNote500CountTextBox.ForeColor = Color.Gainsboro;
             BankNote500CountTextBox.Location = new Point(114, 133);
             BankNote500CountTextBox.Multiline = false;
@@ -1016,7 +1016,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote500CountTextBox.PlaceholderColor = Color.DarkGray;
             BankNote500CountTextBox.PlaceholderText = "";
             BankNote500CountTextBox.ReadOnly = false;
-            BankNote500CountTextBox.Size = new Size(140, 34);
+            BankNote500CountTextBox.Size = new Size(140, 37);
             BankNote500CountTextBox.TabIndex = 130;
             BankNote500CountTextBox.TextAlign = HorizontalAlignment.Center;
             BankNote500CountTextBox.Texts = "";
@@ -1029,7 +1029,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote1000CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             BankNote1000CountTextBox.BorderColor = Color.DimGray;
             BankNote1000CountTextBox.BorderSize = 1;
-            BankNote1000CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            BankNote1000CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             BankNote1000CountTextBox.ForeColor = Color.Gainsboro;
             BankNote1000CountTextBox.Location = new Point(114, 90);
             BankNote1000CountTextBox.Multiline = false;
@@ -1039,7 +1039,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             BankNote1000CountTextBox.PlaceholderColor = Color.DarkGray;
             BankNote1000CountTextBox.PlaceholderText = "";
             BankNote1000CountTextBox.ReadOnly = false;
-            BankNote1000CountTextBox.Size = new Size(140, 34);
+            BankNote1000CountTextBox.Size = new Size(140, 37);
             BankNote1000CountTextBox.TabIndex = 129;
             BankNote1000CountTextBox.TextAlign = HorizontalAlignment.Center;
             BankNote1000CountTextBox.Texts = "";
@@ -1089,7 +1089,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin1CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             Coin1CountTextBox.BorderColor = Color.DimGray;
             Coin1CountTextBox.BorderSize = 1;
-            Coin1CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            Coin1CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             Coin1CountTextBox.ForeColor = Color.Gainsboro;
             Coin1CountTextBox.Location = new Point(114, 217);
             Coin1CountTextBox.Multiline = false;
@@ -1099,7 +1099,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin1CountTextBox.PlaceholderColor = Color.DarkGray;
             Coin1CountTextBox.PlaceholderText = "";
             Coin1CountTextBox.ReadOnly = false;
-            Coin1CountTextBox.Size = new Size(140, 34);
+            Coin1CountTextBox.Size = new Size(140, 37);
             Coin1CountTextBox.TabIndex = 137;
             Coin1CountTextBox.TextAlign = HorizontalAlignment.Center;
             Coin1CountTextBox.Texts = "";
@@ -1112,7 +1112,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin2CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             Coin2CountTextBox.BorderColor = Color.DimGray;
             Coin2CountTextBox.BorderSize = 1;
-            Coin2CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            Coin2CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             Coin2CountTextBox.ForeColor = Color.Gainsboro;
             Coin2CountTextBox.Location = new Point(114, 177);
             Coin2CountTextBox.Multiline = false;
@@ -1122,7 +1122,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin2CountTextBox.PlaceholderColor = Color.DarkGray;
             Coin2CountTextBox.PlaceholderText = "";
             Coin2CountTextBox.ReadOnly = false;
-            Coin2CountTextBox.Size = new Size(140, 34);
+            Coin2CountTextBox.Size = new Size(140, 37);
             Coin2CountTextBox.TabIndex = 136;
             Coin2CountTextBox.TextAlign = HorizontalAlignment.Center;
             Coin2CountTextBox.Texts = "";
@@ -1135,7 +1135,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin5CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             Coin5CountTextBox.BorderColor = Color.DimGray;
             Coin5CountTextBox.BorderSize = 1;
-            Coin5CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            Coin5CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             Coin5CountTextBox.ForeColor = Color.Gainsboro;
             Coin5CountTextBox.Location = new Point(114, 137);
             Coin5CountTextBox.Multiline = false;
@@ -1145,7 +1145,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin5CountTextBox.PlaceholderColor = Color.DarkGray;
             Coin5CountTextBox.PlaceholderText = "";
             Coin5CountTextBox.ReadOnly = false;
-            Coin5CountTextBox.Size = new Size(140, 34);
+            Coin5CountTextBox.Size = new Size(140, 37);
             Coin5CountTextBox.TabIndex = 135;
             Coin5CountTextBox.TextAlign = HorizontalAlignment.Center;
             Coin5CountTextBox.Texts = "";
@@ -1158,7 +1158,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin10CountTextBox.BackColor = Color.FromArgb(38, 38, 38);
             Coin10CountTextBox.BorderColor = Color.DimGray;
             Coin10CountTextBox.BorderSize = 1;
-            Coin10CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 9.749999F);
+            Coin10CountTextBox.Font = new Font("FC Subject [Non-commercial] Reg", 11.2499981F);
             Coin10CountTextBox.ForeColor = Color.Gainsboro;
             Coin10CountTextBox.Location = new Point(114, 97);
             Coin10CountTextBox.Multiline = false;
@@ -1168,7 +1168,7 @@ namespace MimyMart.Windows.Forms.UI.Report
             Coin10CountTextBox.PlaceholderColor = Color.DarkGray;
             Coin10CountTextBox.PlaceholderText = "";
             Coin10CountTextBox.ReadOnly = false;
-            Coin10CountTextBox.Size = new Size(140, 34);
+            Coin10CountTextBox.Size = new Size(140, 37);
             Coin10CountTextBox.TabIndex = 134;
             Coin10CountTextBox.TextAlign = HorizontalAlignment.Center;
             Coin10CountTextBox.Texts = "";

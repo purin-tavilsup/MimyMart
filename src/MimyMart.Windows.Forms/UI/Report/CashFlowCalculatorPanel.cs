@@ -1,9 +1,12 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
+using MimyMart.Application.Abstractions;
 using MimyMart.Application.Common.Enums;
 using MimyMart.Application.Common.Interfaces;
 using MimyMart.Application.Common.Models;
+using MimyMart.Application.Enums;
 
 namespace MimyMart.Windows.Forms.UI.Report;
 
@@ -14,29 +17,33 @@ public partial class CashFlowCalculatorPanel : UserControl
 	private readonly IJsonService _jsonService;
 	private readonly ICsvService _csvService;
 	private readonly ILogger<MainForm> _logger;
-
     private SalesSummary? _salesSummary;
     private PaymentsSummary? _paymentsSummary;
+    private readonly string _dataDirectory;
+    private readonly string _csvDirectory;
+	private readonly string _backupDirectory;
 
-	private const string DataDirectory = @"C:\\ProgramData\\MimyMart\\CashFlow\\Data";
-	private const string CsvDirectory = @"C:\\ProgramData\\MimyMart\\CashFlow\\CSV";
-	private const string SharedDirectory = @"G:\\My Drive\\MimyMart\\Data\\CSV";
+	private string CsvFilePath => @$"{_csvDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.csv";
+    private string DataFilePath => @$"{_dataDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.json";
+    private string BackupFilePath => @$"{_backupDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.csv";
 
-	private static string DataFilePath => @$"{DataDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.json";
-	private static string CsvFilePath => @$"{CsvDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.csv";
-	private static string SharedCsvFilePath => @$"{SharedDirectory}\\CashFlow_{DateTime.Today:yyyy-MMMM-dd}.csv";
-
-	public CashFlowCalculatorPanel(IReportService reportService, 
-								   IJsonService jsonService,
-								   ICsvService csvService,
-								   ILogger<MainForm> logger)
+    public CashFlowCalculatorPanel(IReportService reportService, 
+                                   IJsonService jsonService,
+                                   ICsvService csvService,
+                                   ILogger<MainForm> logger, 
+                                   IConfiguration configuration, 
+                                   IInstalledOsLanguage installedOsLanguage)
 	{
-		_reportService = reportService;
+        _reportService = reportService;
 		_jsonService = jsonService;
 		_csvService = csvService;
 		_logger = logger;
 
-		InitializeComponent();
+        _dataDirectory = GetDataDirectory(configuration);
+        _csvDirectory = GetCsvDirectory(configuration);
+        _backupDirectory = GetBackupDirectory(configuration, installedOsLanguage);
+        
+        InitializeComponent();
 		InitializeChangesListView();
 		InitializePayOutListView();
 		LoadSavedData();
@@ -45,7 +52,30 @@ public partial class CashFlowCalculatorPanel : UserControl
 		RemoveChangeButton.Enabled = false;
 
 		DateLabel.Text = $"Date: {DateTime.Today:D}";
-	}
+    }
+    
+    private static string GetBackupDirectory(IConfiguration configuration, IInstalledOsLanguage installedOsLanguage)
+    {
+        var path = configuration.GetValue<string>("CashFlow:BackupDirectory") ?? @"G:\\My Drive\\MimyMart\\Data\\CSV";
+
+        return installedOsLanguage.Language == OsLanguage.Thai 
+                   ? path.Replace("My Drive", "ไดรฟ์ของฉัน") 
+                   : path;
+    }
+    
+    private static string GetDataDirectory(IConfiguration configuration)
+    {
+        var path = configuration.GetValue<string>("CashFlow:DataDirectory");
+
+        return path ?? @"C:\\ProgramData\\MimyMart\\CashFlow\\Data";
+    }
+    
+    private static string GetCsvDirectory(IConfiguration configuration)
+    {
+        var path = configuration.GetValue<string>("CashFlow:CsvDirectory");
+
+        return path ?? @"C:\\ProgramData\\MimyMart\\CashFlow\\CSV";
+    }
 
 	private async Task<SalesSummary> GetSalesReportAsync()
     {
@@ -62,8 +92,7 @@ public partial class CashFlowCalculatorPanel : UserControl
         ChangesListView.View = View.Details;
         ChangesListView.GridLines = false;
         ChangesListView.FullRowSelect = true;
-
-
+        
         ChangesListView.Columns.Add("เวลา", 70, HorizontalAlignment.Center);
         ChangesListView.Columns.Add("จำนวน", 130, HorizontalAlignment.Right);
 
@@ -85,19 +114,14 @@ public partial class CashFlowCalculatorPanel : UserControl
 
     private void LoadSavedData()
     {
-		if (!Directory.Exists(DataDirectory))
+		if (!Directory.Exists(_dataDirectory))
 		{
-			Directory.CreateDirectory(DataDirectory);
+			Directory.CreateDirectory(_dataDirectory);
 		}
 
-		if (!Directory.Exists(CsvDirectory))
+		if (!Directory.Exists(_csvDirectory))
 		{
-			Directory.CreateDirectory(CsvDirectory);
-		}
-
-		if (!Directory.Exists(SharedDirectory))
-		{
-			Directory.CreateDirectory(SharedDirectory);
+			Directory.CreateDirectory(_csvDirectory);
 		}
 
         var data = LoadDataFromFile();
@@ -138,9 +162,9 @@ public partial class CashFlowCalculatorPanel : UserControl
         {
             MessageBox.Show(ex.Message, "บันทึกไม่สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-			var message = $"Failed to save data file [{DataFilePath}] to directory [{DataDirectory}]";
+			var message = $"Failed to save data file [{DataFilePath}] to directory [{_dataDirectory}]";
 
-			_logger.LogWarning(ex, message);
+            _logger.LogWarning(ex, "{Message}", message);
         }
     }
 
@@ -156,9 +180,9 @@ public partial class CashFlowCalculatorPanel : UserControl
 		{
 			MessageBox.Show(ex.Message, "บันทึกไม่สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-			var message = $"Failed to save csv file [{CsvFilePath}] to directory [{CsvDirectory}]";
+			var message = $"Failed to save csv file [{CsvFilePath}] to directory [{_csvDirectory}]";
 
-			_logger.LogWarning(ex, message);
+            _logger.LogWarning(ex, "{Message}", message);
 		}
 	}
 
@@ -166,13 +190,13 @@ public partial class CashFlowCalculatorPanel : UserControl
     {
 		try
 		{
-            File.Copy(CsvFilePath, SharedCsvFilePath, overwrite: true);
+            File.Copy(CsvFilePath, BackupFilePath, overwrite: true);
 		}
 		catch (Exception ex)
 		{
-            var message = $"Failed to copy file [{CsvFilePath}] to directory [{SharedDirectory}]";
+            var message = $"Failed to copy file [{CsvFilePath}] to directory [{_backupDirectory}]";
 
-            _logger.LogWarning(ex, message);
+            _logger.LogWarning(ex, "{Message}", message);
 		}
     }
 

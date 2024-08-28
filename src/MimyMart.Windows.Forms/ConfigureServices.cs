@@ -1,5 +1,6 @@
 ﻿using MimyMart.Windows.Forms;
 using System.Runtime.Versioning;
+using MimyMart.Application.Abstractions;
 using MimyMart.Windows.Forms.Interfaces;
 using MimyMart.Windows.Forms.UI;
 using MimyMart.Windows.Forms.UI.Inventory;
@@ -17,7 +18,8 @@ namespace Microsoft.Extensions.DependencyInjection;
 internal static class ConfigureServices
 {
 	internal static IServiceCollection AddUIServices(this IServiceCollection services)
-    {
+	{
+		services.AddSingleton<IInstalledOsLanguage, InstalledOsLanguage>();
 		services.AddSingleton<InvoiceProductsReportPanel>()
 				.AddSingleton<SalesHistoryReportPanel>()
 				.AddSingleton<SalesReportPanel>()
