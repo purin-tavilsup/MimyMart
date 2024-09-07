@@ -4,5 +4,5 @@ namespace MimyMart.Application.Abstractions;
 
 public interface IInstalledOsLanguage
 {
-	OsLanguage Language { get; init; }
+	OsLanguage Language { get; }
 }

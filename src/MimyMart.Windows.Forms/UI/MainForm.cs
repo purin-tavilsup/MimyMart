@@ -95,7 +95,7 @@ public partial class MainForm : Form
 	{
 		var path = configuration.GetValue<string>("Database:BackupDirectory");
 
-		return path ?? "C:\\ProgramData\\MimyMart\\Reports";
+		return path ?? @"C:\ProgramData\MimyMart\Reports";
 	}
 
 	private void DateTimeUpdateTimer_Tick(object? sender, EventArgs e)
@@ -272,7 +272,7 @@ public partial class MainForm : Form
 			return;
 
 		var today = DateTime.Today;
-		var byDateBackupDirectory = $"{_backupDatabaseDirectory}\\{today.Year}\\{today.Month:00}\\{today.Day:00}";
+		var byDateBackupDirectory = $@"{_backupDatabaseDirectory}\{today.Year}\{today.Month:00}\{today.Day:00}";
 			
 		if (!Directory.Exists(byDateBackupDirectory)) 
 			Directory.CreateDirectory(byDateBackupDirectory);

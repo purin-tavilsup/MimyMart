@@ -7,7 +7,7 @@ namespace MimyMart.Windows.Forms;
 public class InstalledOsLanguage : IInstalledOsLanguage
 {
 	private const string Thai = "th-TH";
-	public OsLanguage Language { get; init; } = CultureInfo.InstalledUICulture.Name == Thai
-													? OsLanguage.Thai
-													: OsLanguage.English;
+	public OsLanguage Language => CultureInfo.InstalledUICulture.Name == Thai
+									  ? OsLanguage.Thai
+									  : OsLanguage.English;
 }

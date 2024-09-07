@@ -65,6 +65,7 @@
             PaymentsTotalCaptionLabel = new Label();
             GetPaymentButton = new Button();
             SaveSaleInvoiceButton = new Button();
+            OpenCashDrawerButton = new ModernUI.ModernButton();
             ((System.ComponentModel.ISupportInitialize)InvoiceDataView).BeginInit();
             panel2.SuspendLayout();
             panel8.SuspendLayout();
@@ -331,6 +332,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(38, 38, 38);
+            panel3.Controls.Add(OpenCashDrawerButton);
             panel3.Controls.Add(LookUpProductButton);
             panel3.Controls.Add(ProductLookUpTextBox);
             panel3.Controls.Add(AddProductWithoutBarcodeButton);
@@ -374,6 +376,8 @@
             ProductLookUpTextBox.Name = "ProductLookUpTextBox";
             ProductLookUpTextBox.Padding = new Padding(7);
             ProductLookUpTextBox.PasswordChar = false;
+            ProductLookUpTextBox.PlaceholderColor = Color.DarkGray;
+            ProductLookUpTextBox.PlaceholderText = "";
             ProductLookUpTextBox.ReadOnly = false;
             ProductLookUpTextBox.Size = new Size(224, 56);
             ProductLookUpTextBox.TabIndex = 49;
@@ -560,6 +564,26 @@
             SaveSaleInvoiceButton.UseVisualStyleBackColor = false;
             SaveSaleInvoiceButton.Click += SaveSaleInvoiceButton_Click;
             // 
+            // OpenCashDrawerButton
+            // 
+            OpenCashDrawerButton.BackColor = Color.FromArgb(38, 38, 38);
+            OpenCashDrawerButton.BackgroundColor = Color.FromArgb(38, 38, 38);
+            OpenCashDrawerButton.BorderColor = Color.Plum;
+            OpenCashDrawerButton.BorderRadius = 5;
+            OpenCashDrawerButton.BorderSize = 1;
+            OpenCashDrawerButton.FlatAppearance.BorderSize = 0;
+            OpenCashDrawerButton.FlatStyle = FlatStyle.Flat;
+            OpenCashDrawerButton.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            OpenCashDrawerButton.ForeColor = Color.White;
+            OpenCashDrawerButton.Location = new Point(9, 164);
+            OpenCashDrawerButton.Name = "OpenCashDrawerButton";
+            OpenCashDrawerButton.Size = new Size(375, 80);
+            OpenCashDrawerButton.TabIndex = 52;
+            OpenCashDrawerButton.Text = " เปิดลิ้นชัก";
+            OpenCashDrawerButton.TextColor = Color.White;
+            OpenCashDrawerButton.UseVisualStyleBackColor = false;
+            OpenCashDrawerButton.Click += OpenCashDrawerButton_Click;
+            // 
             // SalePanel
             // 
             AutoScaleDimensions = new SizeF(6F, 13F);
@@ -613,5 +637,6 @@
         private ModernUI.ModernButton LookUpProductButton;
         private ModernUI.ModernTextBox ProductLookUpTextBox;
         private ModernUI.ModernButton CancelSaleInvoiceButton;
+        private ModernUI.ModernButton OpenCashDrawerButton;
     }
 }
