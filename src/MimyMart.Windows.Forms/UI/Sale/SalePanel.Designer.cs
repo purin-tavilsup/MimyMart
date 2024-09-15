@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            var dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            var dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            var dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            var dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            var dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            var dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            var dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            var dataGridViewCellStyle4 = new DataGridViewCellStyle();
             InvoiceTotalCaptionLabel = new Label();
             InvoiceTotalLabel = new Label();
             PaymentsTotalLabel = new Label();
@@ -52,6 +52,7 @@
             panel9 = new Panel();
             ClearAllPaymentsButton = new ModernUI.ModernButton();
             panel3 = new Panel();
+            OpenCashDrawerButton = new ModernUI.ModernButton();
             LookUpProductButton = new ModernUI.ModernButton();
             ProductLookUpTextBox = new ModernUI.ModernTextBox();
             AddProductWithoutBarcodeButton = new ModernUI.ModernButton();
@@ -65,7 +66,6 @@
             PaymentsTotalCaptionLabel = new Label();
             GetPaymentButton = new Button();
             SaveSaleInvoiceButton = new Button();
-            OpenCashDrawerButton = new ModernUI.ModernButton();
             ((System.ComponentModel.ISupportInitialize)InvoiceDataView).BeginInit();
             panel2.SuspendLayout();
             panel8.SuspendLayout();
@@ -145,24 +145,24 @@
             InvoiceDataView.BorderStyle = BorderStyle.None;
             InvoiceDataView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             InvoiceDataView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle5.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle5.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle5.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle5.SelectionBackColor = Color.Gray;
-            InvoiceDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle1.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle1.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle1.SelectionBackColor = Color.Gray;
+            InvoiceDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             InvoiceDataView.ColumnHeadersHeight = 50;
             InvoiceDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             InvoiceDataView.Columns.AddRange(new DataGridViewColumn[] { Priority, ProductCode, Description, Quantity, UnitPrice, Total, dataGridViewTextBoxColumn1 });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(38, 38, 38);
-            dataGridViewCellStyle6.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle6.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            InvoiceDataView.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(38, 38, 38);
+            dataGridViewCellStyle2.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            InvoiceDataView.DefaultCellStyle = dataGridViewCellStyle2;
             InvoiceDataView.Dock = DockStyle.Fill;
             InvoiceDataView.EnableHeadersVisualStyles = false;
             InvoiceDataView.GridColor = Color.DimGray;
@@ -342,6 +342,26 @@
             panel3.Size = new Size(394, 252);
             panel3.TabIndex = 50;
             // 
+            // OpenCashDrawerButton
+            // 
+            OpenCashDrawerButton.BackColor = Color.FromArgb(38, 38, 38);
+            OpenCashDrawerButton.BackgroundColor = Color.FromArgb(38, 38, 38);
+            OpenCashDrawerButton.BorderColor = Color.Turquoise;
+            OpenCashDrawerButton.BorderRadius = 5;
+            OpenCashDrawerButton.BorderSize = 1;
+            OpenCashDrawerButton.FlatAppearance.BorderSize = 0;
+            OpenCashDrawerButton.FlatStyle = FlatStyle.Flat;
+            OpenCashDrawerButton.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            OpenCashDrawerButton.ForeColor = Color.White;
+            OpenCashDrawerButton.Location = new Point(9, 164);
+            OpenCashDrawerButton.Name = "OpenCashDrawerButton";
+            OpenCashDrawerButton.Size = new Size(375, 80);
+            OpenCashDrawerButton.TabIndex = 52;
+            OpenCashDrawerButton.Text = " เปิดลิ้นชัก";
+            OpenCashDrawerButton.TextColor = Color.White;
+            OpenCashDrawerButton.UseVisualStyleBackColor = false;
+            OpenCashDrawerButton.Click += OpenCashDrawerButton_Click;
+            // 
             // LookUpProductButton
             // 
             LookUpProductButton.BackColor = Color.FromArgb(38, 38, 38);
@@ -418,24 +438,24 @@
             PaymentDataView.BorderStyle = BorderStyle.None;
             PaymentDataView.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             PaymentDataView.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = Color.FromArgb(48, 48, 48);
-            dataGridViewCellStyle7.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle7.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle7.Padding = new Padding(10, 0, 0, 0);
-            dataGridViewCellStyle7.SelectionBackColor = Color.Gray;
-            PaymentDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(48, 48, 48);
+            dataGridViewCellStyle3.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle3.Padding = new Padding(10, 0, 0, 0);
+            dataGridViewCellStyle3.SelectionBackColor = Color.Gray;
+            PaymentDataView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             PaymentDataView.ColumnHeadersHeight = 50;
             PaymentDataView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             PaymentDataView.Columns.AddRange(new DataGridViewColumn[] { PaymentPriority, PaymentType, PaymentAmount, Note });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.FromArgb(38, 38, 38);
-            dataGridViewCellStyle8.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle8.ForeColor = Color.Gainsboro;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            PaymentDataView.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(38, 38, 38);
+            dataGridViewCellStyle4.Font = new Font("FC Subject [Non-commercial] Reg", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            PaymentDataView.DefaultCellStyle = dataGridViewCellStyle4;
             PaymentDataView.Dock = DockStyle.Left;
             PaymentDataView.EnableHeadersVisualStyles = false;
             PaymentDataView.GridColor = Color.DimGray;
@@ -563,26 +583,6 @@
             SaveSaleInvoiceButton.TextImageRelation = TextImageRelation.ImageAboveText;
             SaveSaleInvoiceButton.UseVisualStyleBackColor = false;
             SaveSaleInvoiceButton.Click += SaveSaleInvoiceButton_Click;
-            // 
-            // OpenCashDrawerButton
-            // 
-            OpenCashDrawerButton.BackColor = Color.FromArgb(38, 38, 38);
-            OpenCashDrawerButton.BackgroundColor = Color.FromArgb(38, 38, 38);
-            OpenCashDrawerButton.BorderColor = Color.Plum;
-            OpenCashDrawerButton.BorderRadius = 5;
-            OpenCashDrawerButton.BorderSize = 1;
-            OpenCashDrawerButton.FlatAppearance.BorderSize = 0;
-            OpenCashDrawerButton.FlatStyle = FlatStyle.Flat;
-            OpenCashDrawerButton.Font = new Font("FC Subject [Non-commercial] Reg", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            OpenCashDrawerButton.ForeColor = Color.White;
-            OpenCashDrawerButton.Location = new Point(9, 164);
-            OpenCashDrawerButton.Name = "OpenCashDrawerButton";
-            OpenCashDrawerButton.Size = new Size(375, 80);
-            OpenCashDrawerButton.TabIndex = 52;
-            OpenCashDrawerButton.Text = " เปิดลิ้นชัก";
-            OpenCashDrawerButton.TextColor = Color.White;
-            OpenCashDrawerButton.UseVisualStyleBackColor = false;
-            OpenCashDrawerButton.Click += OpenCashDrawerButton_Click;
             // 
             // SalePanel
             // 

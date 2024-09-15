@@ -2,5 +2,7 @@
 
 public interface ICashDrawerService
 {
-	public void OpenCashDrawer();
+	void Configure(string serialPortName, int code);
+
+	void OpenCashDrawer();
 }
