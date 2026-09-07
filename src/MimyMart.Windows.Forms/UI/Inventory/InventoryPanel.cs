@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using MediatR;
+using Microsoft.Extensions.Logging;
 using MimyMart.Application.Common.Interfaces;
 using MimyMart.Application.Events;
 using MimyMart.Application.InventoryProducts;
@@ -28,6 +29,8 @@ public partial class InventoryPanel : UserControl
     private int? _lastQueryCategoryId;
     private SubPanel _activeSubPanel;
     private readonly IMediator _mediator;
+    private readonly ILogger<InventoryPanel> _logger;
+    private readonly BarcodeScanGate _scanGate = new();
 
     private enum ProductColumn
     {
@@ -50,10 +53,12 @@ public partial class InventoryPanel : UserControl
                           AddNewInventoryProductForm addNewProductForm,
                           UpdateInventoryProductForm updateProductForm,
                           AddNewInventoryProductWithCustomBarcodeForm addNewProductWithCustomBarcodeForm,
-                          MessageForm messageForm)
+                          MessageForm messageForm,
+                          ILogger<InventoryPanel> logger)
     {
         _eventAggregator = eventAggregator;
         _mediator = mediator;
+        _logger = logger;
         _productCategoryDictionary = storeConstants.ProductCategories;
         _addNewProductForm = addNewProductForm;
         _updateProductForm = updateProductForm;
@@ -230,19 +235,36 @@ public partial class InventoryPanel : UserControl
         if (_activeSubPanel != SubPanel.Inventory)
             return;
 
-        try
+        // AddNewProduct opens a modal dialog, whose nested message loop keeps delivering scans.
+        // Without this gate the second scan re-enters and ShowDialog throws on the already
+        // visible singleton form, which crashes the app.
+        if (!_scanGate.TryEnter())
         {
-            var product = await GetInventoryProductsByByBarcodeAsync(barcode);
+            _logger.LogWarning("Barcode {Barcode} was dropped: the previous scan is still being handled.", barcode);
 
-            ShowExistingProduct(product);
             return;
         }
-        catch
-        {
-            // ignored
-        }
 
-        AddNewProduct(barcode);
+        try
+        {
+            try
+            {
+                var product = await GetInventoryProductsByByBarcodeAsync(barcode);
+
+                ShowExistingProduct(product);
+                return;
+            }
+            catch
+            {
+                // ignored
+            }
+
+            AddNewProduct(barcode);
+        }
+        finally
+        {
+            _scanGate.Exit();
+        }
     }
 
     private async Task<IReadOnlyList<InventoryProductDto>> GetInventoryProductsByCategoryIdAsync(int id)
