@@ -1,5 +1,8 @@
-﻿namespace MimyMart.Infrastructure.Services.RawDeviceInput
+﻿using System.Runtime.Versioning;
+
+namespace MimyMart.Infrastructure.Services.RawDeviceInput
 {
+	[type: SupportedOSPlatform("windows")]
 	public class PreMessageFilter : IMessageFilter
 	{
 		// true  to filter the message and stop it from being dispatched 
@@ -17,4 +20,4 @@
 			return false;
 		}
 	}
-}
+}

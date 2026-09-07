@@ -17,6 +17,7 @@ public static class Win32
 	internal const int WM_INPUT = 0x00FF;
 	internal const int WM_USB_DEVICECHANGE = 0x0219;
 	internal const int VK_SHIFT = 0x10;
+	internal const int VK_RETURN = 0x0D;
 
 	internal const int RI_KEY_MAKE = 0x00;  // Key Down
 	internal const int RI_KEY_BREAK = 0x01; // Key Up
@@ -144,4 +145,4 @@ public static class Win32
 
 		return GetKeyboardLayout(threadId);
 	}
-}
+}
