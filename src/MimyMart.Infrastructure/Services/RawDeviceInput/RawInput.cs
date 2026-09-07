@@ -5,12 +5,15 @@ using System.Runtime.Versioning;
 namespace MimyMart.Infrastructure.Services.RawDeviceInput;
 
 [type: SupportedOSPlatform("windows")]
-public class RawInput : NativeWindow  
+public class RawInput : NativeWindow, IDisposable
 {
-	private static RawKeyboard _keyboardDriver;
+	// Per instance, not static: every KeyPressed subscription is added to and removed from this
+	// object, so a second RawInput replacing it would silently redirect the first one's events.
+	private readonly RawKeyboard _keyboardDriver;
 	private readonly IntPtr _devNotifyHandle;
 	private static readonly Guid DeviceInterfaceHid = new("4D1E55B2-F16F-11CF-88CB-001111000030");
 	private PreMessageFilter? _filter;
+	private bool _isDisposed;
 
 	public event RawKeyboard.DeviceEventHandler KeyPressed
 	{
@@ -33,6 +36,8 @@ public class RawInput : NativeWindow
 		if (_filter is null) return;
 
 		System.Windows.Forms.Application.RemoveMessageFilter(_filter);
+
+		_filter = null;
 	}
 
 	public RawInput(IntPtr parentHandle, bool captureOnlyInForeground, string barcodeScannerDeviceName)
@@ -99,9 +104,39 @@ public class RawInput : NativeWindow
 		base.WndProc(ref message);
 	}
         
+	public void Dispose()
+	{
+		Dispose(true);
+
+		GC.SuppressFinalize(this);
+	}
+
+	/// <param name="disposing">
+	/// False when called from the finalizer, where the message filter must be left alone:
+	/// <see cref="System.Windows.Forms.Application"/> is thread-affine and the finalizer runs
+	/// on its own thread.
+	/// </param>
+	protected virtual void Dispose(bool disposing)
+	{
+		if (_isDisposed)
+			return;
+
+		if (disposing)
+		{
+			RemoveMessageFilter();
+			ReleaseHandle();
+		}
+
+		if (_devNotifyHandle != IntPtr.Zero)
+		{
+			Win32.UnregisterDeviceNotification(_devNotifyHandle);
+		}
+
+		_isDisposed = true;
+	}
+
 	~RawInput()
 	{
-		Win32.UnregisterDeviceNotification(_devNotifyHandle);
-		RemoveMessageFilter();
+		Dispose(false);
 	}
-}
+}

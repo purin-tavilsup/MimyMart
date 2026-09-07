@@ -67,6 +67,9 @@ public struct DeviceInfoHid
 	}
 }
 
+// CS0649: DbccReserved and DbccName are laid out to match the Win32 struct and are meant to stay
+// zeroed — RegisterDeviceNotification only reads the size, type and class GUID.
+#pragma warning disable CS0649
 struct BroadcastDeviceInterface
 {
 	// ReSharper disable NotAccessedField.Global
@@ -79,6 +82,7 @@ struct BroadcastDeviceInterface
 	// ReSharper restore NotAccessedField.Global
 	// ReSharper restore UnusedField.Compiler
 }
+#pragma warning restore CS0649
 
 [StructLayout(LayoutKind.Sequential)]
 internal struct Rawinputdevicelist
@@ -182,4 +186,4 @@ internal struct RawInputDevice
 	{
 		return $"{UsagePage}/{Usage}, flags: {Flags}, target: {Target}";
 	}
-}
+}

@@ -11,7 +11,9 @@ namespace MimyMart.Infrastructure.Services.RawDeviceInput
 	{
 		public delegate void DeviceEventHandler(object sender, RawInputEventArg e);
 		public event DeviceEventHandler? KeyPressed;
-		private static InputData _rawBuffer;
+		// Per instance, not static: this holds the packet currently being decoded, so sharing it
+		// across instances would let one keyboard's key overwrite another's mid-barcode.
+		private InputData _rawBuffer;
 		private readonly object _padLock = new();
 		private readonly Dictionary<IntPtr,KeyPressEvent> _deviceList = new();
 		private readonly string _barcodeScannerDeviceName;
@@ -49,50 +51,67 @@ namespace MimyMart.Infrastructure.Services.RawDeviceInput
 				if (Win32.GetRawInputDeviceList(IntPtr.Zero, ref deviceCount, (uint)dwSize) == 0)
 				{
 					var pRawInputDeviceList = Marshal.AllocHGlobal((int)(dwSize * deviceCount));
-                    _ = Win32.GetRawInputDeviceList(pRawInputDeviceList, ref deviceCount, (uint)dwSize);
 
-					for (var i = 0; i < deviceCount; i++)
+					// try/finally so an unmanaged buffer is not leaked when a marshalling call
+					// throws partway through enumeration.
+					try
 					{
-						uint pcbSize = 0;
+						_ = Win32.GetRawInputDeviceList(pRawInputDeviceList, ref deviceCount, (uint)dwSize);
 
-						// On Window 8 64bit when compiling against .Net > 3.5 using .ToInt32 you will generate an arithmetic overflow. Leave as it is for 32bit/64bit applications
-						var rid = (Rawinputdevicelist)Marshal.PtrToStructure(new IntPtr((pRawInputDeviceList.ToInt64() + (dwSize * i))), typeof(Rawinputdevicelist));
-
-                        _ = Win32.GetRawInputDeviceInfo(rid.hDevice, RawInputDeviceInfo.RIDI_DEVICENAME, IntPtr.Zero, ref pcbSize);
-
-						if (pcbSize <= 0) { continue; }
-
-						var pData = Marshal.AllocHGlobal((int)pcbSize);
-
-                        _ = Win32.GetRawInputDeviceInfo(rid.hDevice, RawInputDeviceInfo.RIDI_DEVICENAME, pData, ref pcbSize);
-
-						var deviceName = Marshal.PtrToStringAnsi(pData) ?? string.Empty;
-
-                        if (rid.dwType is DeviceType.RimTypekeyboard or DeviceType.RimTypeHid)
+						for (var i = 0; i < deviceCount; i++)
 						{
-							var deviceDesc = Win32.GetDeviceDescription(deviceName);
+							uint pcbSize = 0;
 
-							var dInfo = new KeyPressEvent
-							{
-								DeviceName = Marshal.PtrToStringAnsi(pData) ?? string.Empty,
-								DeviceHandle = rid.hDevice,
-								DeviceType = Win32.GetDeviceType(rid.dwType),
-								Name = deviceDesc,
-								Source = keyboardNumber++.ToString(CultureInfo.InvariantCulture)
-							};
-						   
-							if (!_deviceList.ContainsKey(rid.hDevice))
-							{
-								numberOfDevices++;
+							// On Window 8 64bit when compiling against .Net > 3.5 using .ToInt32 you will generate an arithmetic overflow. Leave as it is for 32bit/64bit applications
+							// Generic overload: the non-generic one returns object, so the cast was
+							// an unbox of a possibly-null value (CS8605).
+							var rid = Marshal.PtrToStructure<Rawinputdevicelist>(new IntPtr(pRawInputDeviceList.ToInt64() + (dwSize * i)));
 
-								_deviceList.Add(rid.hDevice, dInfo);
+							_ = Win32.GetRawInputDeviceInfo(rid.hDevice, RawInputDeviceInfo.RIDI_DEVICENAME, IntPtr.Zero, ref pcbSize);
+
+							if (pcbSize <= 0) { continue; }
+
+							var pData = Marshal.AllocHGlobal((int)pcbSize);
+
+							try
+							{
+								_ = Win32.GetRawInputDeviceInfo(rid.hDevice, RawInputDeviceInfo.RIDI_DEVICENAME, pData, ref pcbSize);
+
+								var deviceName = Marshal.PtrToStringAnsi(pData) ?? string.Empty;
+
+								if (rid.dwType is not (DeviceType.RimTypekeyboard or DeviceType.RimTypeHid))
+								{
+									continue;
+								}
+
+								var deviceDesc = Win32.GetDeviceDescription(deviceName);
+
+								var dInfo = new KeyPressEvent
+								{
+									DeviceName = deviceName,
+									DeviceHandle = rid.hDevice,
+									DeviceType = Win32.GetDeviceType(rid.dwType),
+									Name = deviceDesc,
+									Source = keyboardNumber++.ToString(CultureInfo.InvariantCulture)
+								};
+
+								if (!_deviceList.ContainsKey(rid.hDevice))
+								{
+									numberOfDevices++;
+
+									_deviceList.Add(rid.hDevice, dInfo);
+								}
+							}
+							finally
+							{
+								Marshal.FreeHGlobal(pData);
 							}
 						}
-
-						Marshal.FreeHGlobal(pData);
 					}
-
-					Marshal.FreeHGlobal(pRawInputDeviceList);
+					finally
+					{
+						Marshal.FreeHGlobal(pRawInputDeviceList);
+					}
 
 					NumberOfKeyboards = numberOfDevices;
 					Debug.WriteLine("EnumerateDevices() found {0} Keyboard(s)", NumberOfKeyboards);
@@ -123,27 +142,32 @@ namespace MimyMart.Infrastructure.Services.RawDeviceInput
 
 			if (virtualKey == Win32.KEYBOARD_OVERRUN_MAKE_CODE) return;
 
-			KeyPressEvent keyPressEvent;
+			KeyPressEvent? device;
 
-			if (_deviceList.ContainsKey(_rawBuffer.header.hDevice))
+			// Tested and read inside one lock. EnumerateDevices() clears this dictionary and
+			// runs on device-change messages, so a lookup split either side of the lock can find
+			// the handle and then fail to fetch it.
+			lock (_padLock)
 			{
-				lock (_padLock)
+				if (!_deviceList.TryGetValue(_rawBuffer.header.hDevice, out device))
 				{
-					keyPressEvent = _deviceList[_rawBuffer.header.hDevice];
+					Debug.WriteLine("Handle: {0} was not in the device list.", _rawBuffer.header.hDevice);
+
+					return;
 				}
-			}
-			else
-			{
-				Debug.WriteLine("Handle: {0} was not in the device list.", _rawBuffer.header.hDevice);
-				return;
 			}
 
 			var isBreakBitSet = ((flags & Win32.RI_KEY_BREAK) != 0);
-			
-			keyPressEvent.KeyPressState = isBreakBitSet ? "BREAK" : "MAKE"; 
-			keyPressEvent.Message = _rawBuffer.data.keyboard.Message;
-			keyPressEvent.VKeyName = KeyMapper.GetMicrosoftKeyName(virtualKey).ToUpper();
-			keyPressEvent.VKey = virtualKey;
+
+			// Copied, not mutated: the dictionary entry outlives this keystroke and is handed to
+			// every subscriber.
+			var keyPressEvent = device with
+			{
+				PressState = isBreakBitSet ? KeyPressState.Break : KeyPressState.Make,
+				Message = _rawBuffer.data.keyboard.Message,
+				VKeyName = KeyMapper.GetMicrosoftKeyName(virtualKey).ToUpperInvariant(),
+				VKey = virtualKey
+			};
 
 			KeyPressed?.Invoke(this, new RawInputEventArg(keyPressEvent));
 		}

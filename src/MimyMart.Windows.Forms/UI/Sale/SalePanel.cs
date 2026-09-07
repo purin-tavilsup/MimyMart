@@ -1,4 +1,5 @@
 ﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.Extensions.Logging;
 using MimyMart.Application.Common.Extensions;
 using MimyMart.Application.Common.Interfaces;
 using MimyMart.Application.Common.Models;
@@ -25,6 +26,8 @@ public partial class SalePanel : UserControl
     private readonly MessageForm _messageForm;
     private readonly PrintReceiptForm _printReceiptForm;
 	private readonly ICashDrawerService _cashDrawerService;
+    private readonly ILogger<SalePanel> _logger;
+    private readonly BarcodeScanGate _scanGate = new();
 
     private const string ProductWithoutBarcode = "2001000000012";
 
@@ -54,8 +57,9 @@ public partial class SalePanel : UserControl
                      AddInvoiceProductForm addInvoiceProductForm,
                      UpdateInvoiceProductForm updateProductForm,
                      MessageForm messageForm,
-                     PrintReceiptForm printReceiptForm, 
-					 ICashDrawerService cashDrawerService)
+                     PrintReceiptForm printReceiptForm,
+					 ICashDrawerService cashDrawerService,
+					 ILogger<SalePanel> logger)
     {
         InitializeComponent();
         InitializeInvoiceDataView();
@@ -70,6 +74,7 @@ public partial class SalePanel : UserControl
         _messageForm = messageForm;
         _printReceiptForm = printReceiptForm;
 		_cashDrawerService = cashDrawerService;
+		_logger = logger;
 
 		SubscribeEvents();
     }
@@ -331,7 +336,24 @@ public partial class SalePanel : UserControl
         if (_activeSubPanel != SubPanel.Sales)
             return;
 
-        await AddProductToInvoiceAsync(barcode);
+        // An unknown barcode opens a modal MessageForm, and its nested message loop keeps
+        // delivering scans. Without this gate the next scan re-enters and ShowDialog throws on the
+        // already visible singleton form, taking the till down mid-sale.
+        if (!_scanGate.TryEnter())
+        {
+            _logger.LogWarning("Barcode {Barcode} was dropped: the previous scan is still being handled.", barcode);
+
+            return;
+        }
+
+        try
+        {
+            await AddProductToInvoiceAsync(barcode);
+        }
+        finally
+        {
+            _scanGate.Exit();
+        }
     }
 
     private async Task AddProductToInvoiceAsync(string barcode)

@@ -1,7 +1,9 @@
 ﻿using System.Globalization;
+using System.Runtime.Versioning;
 
 namespace MimyMart.Infrastructure.Services.RawDeviceInput;
 
+[type: SupportedOSPlatform("windows")]
 public static class KeyMapper
 {
 	// I prefer to have control over the key mapping
@@ -201,6 +203,8 @@ public static class KeyMapper
 	// If you prefer the virtualkey converted into a Microsoft virtualkey code use this
 	public static string GetMicrosoftKeyName(int virtualKey)
 	{
-		return new KeysConverter().ConvertToString(virtualKey);
+		// ConvertToString is documented to return null for a value it cannot render, and callers
+		// uppercase and compare the result — so a null here would throw on an exotic key.
+		return new KeysConverter().ConvertToString(virtualKey) ?? string.Empty;
 	}
-}
+}

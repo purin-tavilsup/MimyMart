@@ -14,6 +14,15 @@ public static class DeviceType
 	public const int RimTypekeyboard = 1;
 	public const int RimTypeHid = 2;
 }
+
+/// <summary>
+/// Raw input reports both halves of every keystroke, in this order.
+/// </summary>
+public enum KeyPressState
+{
+	Make,  // Key down
+	Break  // Key up
+}
     
 internal enum RawInputDeviceInfo : uint
 {
@@ -83,4 +92,4 @@ public enum HidUsage : ushort
 	SystemControl = 0x80, // Muilt-axis Controller
 	Tablet = 0x80,        // Tablet PC controls
 	Consumer = 0x0C,      // Consumer
-}
+}
